@@ -27,13 +27,16 @@
 }
 .resto-card{
   width:250px;
-  height:320px;
+  height:370px;
   border: 1px solid #ccc;
   margin:5px 10px;
   padding:10px;
   background-color: #cce0d3;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   transition: transform 0.2s;
+  display:flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 .resto-card:hover {
   transform: translateY(-5px);
@@ -46,12 +49,13 @@
   object-fit:cover;
 }
 .resto-name{
-  color: #E63946; 
+  color: #E63946;
 }
 .cuisine-name{
   color: #333; 
   margin: 5px 0; 
 }
+
 .star-rating{
   color: #333; 
   margin: 5px 0; 

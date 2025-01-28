@@ -7,7 +7,7 @@ const Header = () => {
       <div className="logo-container">
         <img
           className="logo"
-          src="https://replit.com/@rajdubal87/FoodZen#assets/logo.png"
+          src="https://www.citypng.com/public/uploads/preview/fast-food-delivery-cartoon-character-logo-hd-transparent-png-735811696674987bnjkeubewg.png"
           alt="logo"
         ></img>
       </div>
@@ -23,15 +23,16 @@ const Header = () => {
   );
 };
 
-const Card = () => {
+const Card = (props) => {
+  const {restoName,cuisineName}=props;
   return (
     <div className="resto-card">
       <img
         className="resto-img"
         src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/gp1ityra6utvzqn6ghnv"
       ></img>
-      <h3 className="resto-name">Meghana Foods</h3>
-      <h4 className="cuisine-name">Biryani,North Indian,Asian</h4>
+      <h3 className="resto-name">{restoName}</h3>
+      <h4 className="cuisine-name">{cuisineName}</h4>
       <h4 className="star-rating">4.4 Stars</h4>
       <h4 className="delivery-time">38 minutes</h4>
     </div>
@@ -43,8 +44,8 @@ const Body = () => {
     <div className="body">
       <div className="search-bar">Search</div>
       <div className="resto-container">
-        <Card />
-        <Card />
+        <Card restoName="Meghana Foods" cuisineName="Biryani,North Indian,Asian"/>
+        <Card restoName="KFC" cuisineName="Burger,Fried Chicken,Fast Food"/>
         <Card />
         <Card />
         <Card />
