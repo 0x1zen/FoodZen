@@ -1,0 +1,66 @@
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items: center;
+  padding: 10px;
+  background-color:coral;
+  border:1px solid black;
+}
+.logo{
+  width:50px;
+}
+.nav-items > ul{
+  display:flex;
+}
+.nav-items > ul > li{
+  list-style:none;
+  margin:10px;
+}
+.resto-container{
+  display:flex;
+  flex-wrap:wrap;
+}
+.resto-card{
+  width:250px;
+  height:320px;
+  border: 1px solid #ccc;
+  margin:5px 10px;
+  padding:10px;
+  background-color: #cce0d3;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+.resto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  cursor:pointer;
+}
+.resto-img{
+  height:200px;
+  width:100%;
+  object-fit:cover;
+}
+.resto-name{
+  color: #E63946; 
+}
+.cuisine-name{
+  color: #333; 
+  margin: 5px 0; 
+}
+.star-rating{
+  color: #333; 
+  margin: 5px 0; 
+}
+.delivery-time{
+  color: #333; 
+  margin: 5px 0; 
+}
+.search-bar{
+  padding:20px;
+  margin:20px 40px;
+}
