@@ -23,6 +23,77 @@ const Header = () => {
   );
 };
 
+const responseList = [
+  {
+    info: {
+      id: "337899",
+      name: "The Paratha House",
+      cloudinaryImageId: "jhjyc3xjdbkqr9wbzsj7",
+      locality: "Ganesh Chowk",
+      areaName: "Chhindwara Locality",
+      costForTwo: "₹150 for two",
+      cuisines: ["North Indian"],
+      avgRating: 4.2,
+      veg: true,
+      parentId: "3035",
+      avgRatingString: "4.2",
+      totalRatingsString: "30",
+      sla: {
+        deliveryTime: 54,
+        lastMileTravel: 10.3,
+        serviceability: "SERVICEABLE",
+        slaString: "50-55 mins",
+        lastMileTravelString: "10.3 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+    },
+  },
+  {
+    info: {
+      id: "382152",
+      name: "Shriji Namkeen",
+      cloudinaryImageId: "wa8ek94fp9d97ru1tcyn",
+      locality: "Palika Market",
+      areaName: "Chhindwara City",
+      costForTwo: "₹250 for two",
+      cuisines: ["Snacks", "Beverages", "Desserts"],
+      avgRating: 3.8,
+      parentId: "187168",
+      avgRatingString: "3.8",
+      totalRatingsString: "48",
+      sla: {
+        deliveryTime: 55,
+        lastMileTravel: 10.7,
+        serviceability: "SERVICEABLE",
+        slaString: "50-55 mins",
+        lastMileTravelString: "10.7 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+    },
+  },
+  {
+    info: {
+      id: "751057",
+      name: "The Burger House",
+      cloudinaryImageId: "7fb21fceb84ef1f1e5377cf25fd46247",
+      locality: "Vip Khajri Road",
+      areaName: "Chhindwara City",
+      costForTwo: "₹300 for two",
+      cuisines: ["Burgers", "Snacks", "Beverages"],
+      veg: true,
+      parentId: "16588",
+      avgRatingString: "--",
+      sla: {
+        deliveryTime: 62,
+        lastMileTravel: 11.4,
+        serviceability: "SERVICEABLE",
+        slaString: "60-65 mins",
+        lastMileTravelString: "11.4 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+    },
+  },
+];
 const responseObj = {
   info: {
     id: "830418",
@@ -117,8 +188,35 @@ const responseObj = {
   widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
 };
 
+// const promiseApi = new Promise((resolve, reject) => {
+//   const apiData =
+//     "https://cors-anywhere.herokuapp.com/https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.99740&lng=79.00110&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+//   fetch(apiData)
+//     .then((response) => {
+//       if (!response.ok) {
+//         throw new Error("API call was not OK");
+//       } else {
+//         return response.json();
+//       }
+//     })
+//     .then((data) => {
+//       resolve(data);
+//     })
+//     .catch((error) => {
+//       reject(`Error in fetching data: ${error.message}`);
+//     });
+// });
+// promiseApi
+//   .then((result) => {
+//     console.log(result);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
 const Card = (props) => {
   const { resData } = props;
+  const { name, avgRating, costForTwo, sla } = resData?.info;
   const cuisines = resData.info.cuisines;
   const cuisineString = cuisines.join(", ");
   const imgLink = "https://media-assets.swiggy.com/swiggy/image/upload/";
@@ -128,11 +226,11 @@ const Card = (props) => {
         className="resto-img"
         src={imgLink + resData.info.cloudinaryImageId}
       ></img>
-      <h3 className="resto-name">{resData.info.name}</h3>
+      <h3 className="resto-name">{name}</h3>
       <h4 className="cuisine-name">{cuisineString}</h4>
-      <h4 className="star-rating">{resData.info.avgRating} stars</h4>
-      <h4 className="delivery-time">{resData.info.costForTwo}</h4>
-      <h4 className="delivery-time">{resData.info.sla.deliveryTime} mins</h4>
+      <h4 className="star-rating">{avgRating} stars</h4>
+      <h4 className="delivery-time">{costForTwo}</h4>
+      <h4 className="delivery-time">{sla.deliveryTime} mins</h4>
     </div>
   );
 };
@@ -142,13 +240,9 @@ const Body = () => {
     <div className="body">
       <div className="search-bar">Search</div>
       <div className="resto-container">
-        <Card resData={responseObj} />
-        {/* <Card /> */}
-        {/* <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card /> */}
+        {responseList.map((restaurant,index) => (
+          <Card key={index} resData={restaurant} />
+        ))}
       </div>
     </div>
   );
