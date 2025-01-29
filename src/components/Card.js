@@ -1,10 +1,11 @@
+import { CDN_URL } from "../utils/constants";
 
 const Card = (props) => {
   const { resData } = props;
   const { name, avgRating, costForTwo, sla } = resData?.info;
   const cuisines = resData.info.cuisines;
   const cuisineString = cuisines.join(", ");
-  const imgLink = "https://media-assets.swiggy.com/swiggy/image/upload/";
+  const imgLink = CDN_URL;
   return (
     <div className="resto-card">
       <img

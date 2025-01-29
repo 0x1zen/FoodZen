@@ -1,3 +1,4 @@
+import { LOGO_URL } from "../utils/constants";
 
 const Header = () => {
   return (
@@ -5,7 +6,7 @@ const Header = () => {
       <div className="logo-container">
         <img
           className="logo"
-          src="https://www.citypng.com/public/uploads/preview/fast-food-delivery-cartoon-character-logo-hd-transparent-png-735811696674987bnjkeubewg.png"
+          src={LOGO_URL}
           alt="logo"
         ></img>
       </div>
