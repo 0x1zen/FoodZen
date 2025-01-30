@@ -1,5 +1,4 @@
 import Card from "./Card.js";
-import responseList from "../utils/mockData.js";
 import Button from "./Button.js";
 import { useState, useEffect } from "react";
 
@@ -34,7 +33,7 @@ const Body = () => {
           onClick={() => {
             // Filter Logic
             const filteredList = listOfRestaurants.filter(
-              (res) => res.info.avgRating > 4,
+              (res) => res.info.avgRating >= 4.4,
             );
             console.log(filteredList);
             setListOfRestaurants(filteredList);
