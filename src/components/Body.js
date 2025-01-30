@@ -1,10 +1,25 @@
 import Card from "./Card.js";
 import responseList from "../utils/mockData.js";
 import Button from "./Button.js";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Body = () => {
   let [listOfRestaurants, setListOfRestaurants] = useState(responseList);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.99740&lng=79.00110&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",
+    );
+    const json = await data.json();
+    setListOfRestaurants(
+      json.data.cards.card[1].card.card.gridElements.infoWithStyle.restaurants,
+    );
+  };
+
   return (
     <div className="body">
       <div className="search-bar-area">
