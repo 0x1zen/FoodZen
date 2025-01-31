@@ -821,5 +821,10 @@ unless the state variable(searchText is changed);
 
 -For the filter or map method if we use {} after the arrow function we must write return keyword.
 -If we dont write any {} then we can ommit the return keyword. 
+-Filter method returns array.
+
+Also remember to convert both the strings to loswer case
+
+***return res.info.name.toLowerCase().includes(searchText.toLowerCase());
 
 
