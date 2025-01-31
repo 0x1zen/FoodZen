@@ -760,4 +760,66 @@ Why does everything in react/javascript has callback functions like onCLick?
 -But we want to execute that function when we click on the button.
 -This is why we use callback functions.
 
+Coding The Search Box:-
+
+<input
+          className="search-field"
+          type="text"
+          placeholder="Search" value={searchText}
+        ></input>
+        <button className="btn" onClick={()=>{
+            setSearchText(searchText);
+        }}>
+-The above code will not allow the user to enter anything in the search box.
+Why is that?
+-This is happening because the search field is binded to the state variable.
+-So,we are trying to change the input field,but the state variable isnt changing,so we are not able to write anything in the input box.
+-So,Input box is bind to state variable(searchText) and the default value given for searchText is "" so the input box wont change
+unless the state variable(searchText is changed);
+-So,as soon as the input changes we have to update the searchText(state variable).
+
+<input
+          className="search-field"
+          type="text"
+          placeholder="Search" value={searchText} onChange={(e)=>{
+            setSearchText(e.target.value);
+          }}
+        ></input>
+        <button className="btn" onClick={()=>{
+            console.log(searchText);
+        }}>
+          <span className="btn-name">Search</span>
+        </button>
+
+-On every key press,the whole Body component is getting re-rendered.
+-Whenever the state variable changes,react triggers the reconciliation cycle(re-rendering)
+-Virtual DOM is the object representation of actual DOM.
+-Below is the complete code for search bar filtering:-
+
+<input
+          className="search-field"
+          type="text"
+          placeholder="Search" value={searchText} onChange={(e)=>{
+            setSearchText(e.target.value);
+          }}
+        ></input>
+        <button className="btn" onClick={()=>{
+            const searchedRestaurant=listOfRestaurants.filter((res)=>{
+              return res.info.name.includes(searchText);
+        })
+            if(searchText===""){
+              fetchData();
+            }
+            else{
+              setListOfRestaurants(searchedRestaurant);
+            }
+            
+        }}>
+          <span className="btn-name">Search</span>
+        </button>
+
+
+-For the filter or map method if we use {} after the arrow function we must write return keyword.
+-If we dont write any {} then we can ommit the return keyword. 
+
 

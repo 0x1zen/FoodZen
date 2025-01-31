@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  const [searchText,setSearchText]=useState("Pizza");
+
   console.log("body re-rendered");
   useEffect(() => {
     fetchData();
@@ -34,9 +36,21 @@ const Body = () => {
         <input
           className="search-field"
           type="text"
-          placeholder="Search"
+          placeholder="Search" value={searchText} onChange={(e)=>{
+            setSearchText(e.target.value);
+          }}
         ></input>
-        <button className="btn">
+        <button className="btn" onClick={()=>{
+            const searchedRestaurant=listOfRestaurants.filter((res)=>{
+              return res.info.name.toLowerCase().includes(searchText.toLowerCase());
+        })
+            if(searchText===""){
+              fetchData();
+            }
+            else{
+              setListOfRestaurants(searchedRestaurant);
+            }
+        }}>
           <span className="btn-name">Search</span>
         </button>
         <button
