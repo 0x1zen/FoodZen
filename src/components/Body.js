@@ -1,5 +1,6 @@
 import Card from "./Card.js";
 import Button from "./Button.js";
+import Shimmer from "./Shimmer.js";
 import { useState, useEffect } from "react";
 
 const Body = () => {
@@ -10,14 +11,29 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-      const url = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.99740&lng=79.00110&page_type=DESKTOP_WEB_LISTING";
-      const response = await fetch(url);
-      const json = await response.json();
-      const extractedData=json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants;
-      setListOfRestaurants(
-        extractedData
-      );
+    const url =
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.99740&lng=79.00110&page_type=DESKTOP_WEB_LISTING";
+    const response = await fetch(url);
+    const json = await response.json();
+    let extractedData = null;
+    for (
+      let i = 3;
+      i <
+      json.data.cards.length;
+      i++
+    ) {
+      extractedData =
+        json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants;
+      if (extractedData && extractedData.length===8) {
+        setListOfRestaurants(extractedData);
+        break;
+      }
+    }
   };
+  if (listOfRestaurants.length === 0) {
+    return <Shimmer />;
+  }
 
   return (
     <div className="body">

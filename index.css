@@ -31,7 +31,7 @@ html, body {
   flex-wrap:wrap;
 }
 .resto-card{
-  max-width:300px;
+  max-width:280px;
   max-height:450px;
   border: 1px solid #ccc;
   margin:5px 10px;
