@@ -73,3 +73,14 @@ html, body {
   padding:20px;
   margin:20px 40px;
 }
+.shimmer-container{
+  display:flex;
+  flex-wrap:wrap;
+}
+.shimmer-card{
+  width:280px;
+  height:450px;
+  background-color:#d1d1d1;
+  margin:5px 10px;
+  padding:10px;
+}
