@@ -1,5 +1,4 @@
 import Card from "./Card.js";
-import Button from "./Button.js";
 import Shimmer from "./Shimmer.js";
 import { useState, useEffect } from "react";
 
@@ -16,26 +15,20 @@ const Body = () => {
     const response = await fetch(url);
     const json = await response.json();
     let extractedData = null;
-    for (
-      let i = 3;
-      i <
-      json.data.cards.length;
-      i++
-    ) {
+    for (let i = 3; i < json.data.cards.length; i++) {
       extractedData =
         json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants;
-      if (extractedData && extractedData.length===8) {
+      if (extractedData && extractedData.length === 8) {
         setListOfRestaurants(extractedData);
         break;
       }
     }
   };
-  if (listOfRestaurants.length === 0) {
-    return <Shimmer />;
-  }
 
-  return (
+  return listOfRestaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="search-bar-area">
         <input
@@ -43,8 +36,11 @@ const Body = () => {
           type="text"
           placeholder="Search A Dish"
         ></input>
-        <Button btnName="Search" />
+        <button className="btn">
+          <span className="btn-name">Search</span>
+        </button>
         <button
+          className="btn"
           onClick={() => {
             // Filter Logic
             const filteredList = listOfRestaurants.filter(
@@ -54,7 +50,7 @@ const Body = () => {
             setListOfRestaurants(filteredList);
           }}
         >
-          Top Rated Restaurants
+          <span className="btn-name">Top Rated Restaurants</span>
         </button>
       </div>
       <div className="resto-container">
