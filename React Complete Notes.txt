@@ -1,0 +1,763 @@
+React Complete Notes
+
+What Are Content Delivery Networks?
+A content delivery network (CDN) is a geographically distributed group of servers that caches content close to end users. A CDN allows for the quick transfer of assets needed for loading Internet content, including HTML pages, JavaScript files, stylesheets, images, and videos.
+The popularity of CDN services continues to grow, and today the majority of web traffic is served through CDNs, including traffic from major sites like Facebook, Netflix, and Amazon.
+A properly configured CDN may also help protect websites against some common malicious attacks, such as Distributed Denial of Service (DDOS) attacks.
+Is a CDN the same as a web host?
+While a CDN does not host content and can’t replace the need for proper web hosting, it does help cache content at the network edge, which improves website performance. Many websites struggle to have their performance needs met by traditional hosting services, which is why they opt for CDNs.
+By utilizing caching to reduce hosting bandwidth, helping to prevent interruptions in service, and improving security, CDNs are a popular choice to relieve some of the major pain points that come with traditional web hosting.
+
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+Above is the core react library which contains core react code.
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+Above is the react-dom library which has the document object manipulation code which is used to modify the DOM.
+Why separate?
+React itself is designed to be platform-agnostic, meaning it doesn't assume you're using a browser or a specific rendering environment. For example:
+
+React Native uses React but not ReactDOM because it renders components to mobile platforms instead of the browser.
+
+Building a “Hello World” program in React:-
+const heading = React.createElement("h1", {}, "Hello World From React!");
+The empty {} in the React.createElement function call is the props object, used to pass attributes or properties to the created React element.
+React.createElement(type, props, ...children)
+type
+The type of the element you want to create.In this case, it's "h1", which creates an HTML <h1> tag.
+Props
+An object containing the attributes or properties for the element.These could include HTML attributes like id, className, style, or event handlers like onClick.
+For Example:-
+const heading = React.createElement("h1", { id: "title", className: "main-heading" }, "Hello World!");
+
+A Costly Operation:-
+Adding new nodes into the Dom and removing them is a costlier operation.All these framweworks like react,angular are trying to optimize this process.
+
+
+Hello World Using React:-
+-React needs to have a Root(div) to make all the dom manipulations.
+-Creating a element is core thing of react whereas creating a root and doing DOM manipulation on it is work of
+ ReactDOM.
+const heading=React.createElement("h1",{},"Hello World From React!");
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(heading);
+-Most expensive operation is adding something to a web page(i.e. manipulating the DOM) and all these js libraries
+are trying to optimize this.
+-the object litereal inside the React.createElement ({}) is used to give attributes.
+For Example:-{className:"heading"} Its Like key:value pairs canbe separated with a comma.
+
+What are React Elements?
+-React elements are normal javascipt objects.
+-This object has props which are attributes and children we pass in {} inside createElement.
+-console.log(heading) returns a object to you.
+-root.render() converts the heading object and converts it in a html tag.
+
+Mess:-
+-Creating multiple nested elements using React.createELement will create a mess(un-readable code).
+-So there exists something called as JSX.
+
+Root:-
+-React works only works inside a div(root).
+-In the html file,anything we write above or below that root div will also be displayed on the page.
+-Anything you write inside root div in the html file will be overwritten by react.
+
+Why is React a library:-
+-React can be injected in a small part of a entire codebase.
+-React can be used omly for header or footer.It is small in size and compact.
+-Like it works only inside the root div.
+-React is at the end javascript which provides helper functions to develop a application.
+-In react,order of files matter a lot.
+
+Can React Itself Do All The Stuff Required To Build A Production Ready App?
+-React being a small library cant do all the stuff.
+-There is a lot off libraries,packages required to run a production ready code.
+
+Intro To NPM:-
+-NPM is node package manager.
+-NPM manages packages
+
+What is package.json?
+-It is a configuration for npm.
+-By configuring,we can download packages(dependencies) for our project.
+
+Most Important Package In Our Project?
+-Most important package in a project is bundler.
+-When we have normal html,css and js file our whole code needs to be bundled together,compressed,minified,optimized,
+cleaned before it is sent to production.eg.vite,parcel,vite etc.
+-Parcel is a bundler which we are going to use.
+
+Types of dependencies:-
+-There are two types of dependencies dev and normal.
+-dev dependency is required in a development phase.
+-normal dependencies are used in production also.
+
+what is ^ and ~ before the version number inside package.json file?
+
+~version “Approximately equivalent to version”, will automatically update you to all future patch versions that 
+are backwards-compatible, without incrementing the minor version. ~1.2.3 will use releases from 1.2.3 to < 1.3.0.
+
+^version “Compatible with version”, will automatically update you to all future minor/patch versions that are
+backwards-compatible, without incrementing the major version. ^1.2.3 will use releases from 1.2.3 to < 2.0.0.
+
+Difference between package.json and package-lock.json :-
+
+Purpose:
+
+package.json: This file is primarily used for managing and documenting metadata about the project, including its 
+name, version, author, dependencies, scripts, and other configuration details. It acts as a manifest for the project.
+
+package-lock.json: This file is generated and updated automatically by npm when installing or updating packages.
+ It is used to lock the exact versions of dependencies installed in the project, ensuring reproducibility and 
+consistent installations across different environments.
+
+Dependency Specification:
+
+package.json: It contains the list of dependencies required for the project, along with their desired version 
+ranges specified using semantic versioning or specific version numbers.
+
+package-lock.json: It includes the specific resolved versions of all the dependencies, their sub-dependencies, 
+and their exact installation locations. It acts as a snapshot of the dependency tree for ensuring consistent installations.
+
+Version Control:
+
+package.json: It is typically tracked in version control systems like Git and serves as a shared configuration 
+file among project contributors.
+
+package-lock.json: It is also tracked in version control systems to ensure consistent dependency installations a
+cross different development environments.
+
+Manual Editing:
+
+package.json: Developers manually edit this file to add or remove dependencies, modify scripts, update version 
+ranges, or make other configuration changes.
+
+package-lock.json: It is generally not meant to be manually edited, as it is managed automatically by npm.
+ Manual changes to this file can lead to inconsistencies or conflicts in dependency resolution.
+
+what are node_modules?
+-Node Modules contains all the downloaded packages(dependepncies).
+-All the folders inside node_modules are dependencies and dependencies of dependencies.
+-If you have package.json and package-lock.json you can re-download all the packages which are inside node_modules.
+
+can you create a word file of it.Make it colorful ,with proper titles
+
+Running our app:-
+-Just like we have npm,similarly we have npx.
+-npm means managing(downloading) a package where as npx means executing a package.
+-npx package_name will execute the parcel.
+-npx parcel index.html will run the file on a server.ALso if we update code it will automatically refresh.
+-THis cool thing is done by parcel.
+
+Is CDN a good way to bring react to our project?
+-Fetching react every time using a cdn is costly operation instead we can have react in our node
+modules.
+
+The Import KeyWord:-
+-Earlier we were bringing react into our project from a CDN.
+-After installing react and react-dom from npm,to use it in our App.js file we have to import it from our node_modules.
+-we use import React from "react"; and import ReactDOM from "react-dom/client"; to import them.
+-Remember to add /client while importing react-dom.
+
+When you run.You will get error as browser scripts cannot have imports or exports.
+Solution:-
+<script src="./App.js"></script>
+
+it would treat App.js as a normal js file but it contains react code.Normal js files does not have imports or exports.
+so we change the code to
+<script type="module" src="./App.js"></script>
+
+What all things is parcel doing?
+-Dev Build
+-Local Server
+-HMR-Hot Module Replacement:-
+Hot Module Replacement (HMR) is a feature in module bundlers like Parcel that allows modules to be updated in a running application without requiring a full reload.
+-File Watching Algorithm(Written in C++)
+-Faster Builds because of caching inside .parcel-cache folder
+-Consistent hashing
+-Code Splitting :-
+	Loads only the necessary parts of the application, improving load times.
+-Different Dev and Production Bundle
+-Differential Bundling:-
+	Makes our app support older browsers as well like internet explorer etc.
+-Error Handling(Diagnostics)
+-Image Optimization :-
+	Automatic Image Compression: Parcel can automatically compress images to reduce their file size without significant loss of quality. This is done using various image optimization techniques and libraries.
+Format Conversion: Parcel can convert images to more efficient formats like WebP, which offers better compression rates compared to traditional formats like JPEG and PNG.
+Responsive Images: Although not directly a feature of Parcel, it can work with plugins and configurations to serve responsive images, optimizing images based on device characteristics.
+-Minification of file:-
+	JavaScript and CSS Minification: Parcel automatically minifies JavaScript and CSS files in production builds. This involves removing unnecessary whitespace, comments, and other non-essential elements to reduce file size.
+Tree Shaking: Parcel performs tree shaking, which eliminates unused code from the final bundle, further reducing the size of JavaScript files.
+Source Maps: Even after minification, Parcel can generate source maps, which help in debugging by mapping the minified code back to the original source code.
+
+What are Source Maps?
+-Source maps are a powerful tool in web development that help bridge the gap between minified or transpiled code and the original source code. They are particularly useful for debugging and understanding code that has been transformed for production.
+
+What is Tree Shaking:-
+Tree shaking is a technique used in JavaScript bundlers to optimize code by eliminating unused or "dead" code from the final bundle. This process helps reduce the size of the JavaScript files that are delivered to the client, improving load times and overall performance.
+
+What is Tree Shaking?
+Dead Code Elimination: Tree shaking analyzes the dependency graph of a JavaScript application to determine which parts of the code are actually used and which are not. It then removes the unused code from the final bundle.
+
+Static Analysis: Tree shaking relies on static analysis of the code, meaning it examines the code structure without executing it. This is typically done during the build process.
+
+ES6 Modules: Tree shaking works best with ES6 module syntax (import and export) because it allows for static analysis of the dependency graph. CommonJS modules (require and module.exports) are more challenging to analyze statically.
+
+
+***Remove the line "main":"App.js" from package.json because it creates consflicst while executing index.html using npx parcel index.html
+
+WHat is dist folder?
+-When you do npx parcel index.html it builds a development build of your project hosted on localhost:1234
+
+What is BrowsersList?
+-Browsers list is a npm package used to configure our project to support for browsers.
+
+What are Transitive Dependencies?
+-Transitive dependencies are dependepcies of direct dependencies.
+
+The Command npx parcel index.html :-
+-npx meaing node package execute <package_name> which is parcel in this case where source file is index.html
+
+What are scripts inside package.json file?
+-scripts are industry level commands which are used to execute the project or run the project.
+"scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+
+What is a React Element?
+-Just like HTML element are DOM elements.
+-React elements are javascript objects.
+React.createElement => React Element => Object => HTML Element(after we render it on DOM)
+
+JSX:-
+const heading = React.createElement("h1", { id: "heading" }, "Hello World");
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(heading);
+
+-Creating a element like above is very much lengthy and not readable.
+-So,react devs created JSX.
+-JSX is a javascipt syntax which is easier to create react elements.
+-JSX is not part of react.React is different and JSX is different.
+-React can be written without JSX.
+-But,JSX makes devs life easy.
+-JSX is a kind of convention where we merge HTML and JS together.
+-JSX is not HTML inside Javascript.
+-JSX is a HTML like syntax or XML(eXtensible Markup Language) like syntax.
+-JSX is javascript XML.
+
+Same code using JSX:-
+const jsxHeading = <h1>Hello world from JSX</h1>;
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(jsxHeading);
+
+if we log jsxHeading it is also a object only which is a same thing.
+
+Does the Javascipt Engine understand JSX?
+-No,the JS Engine doesn't understand the JSX code and will throw a error.
+-The JSX code is first transpiled by the bundler(parcel in our case) before it is sent to the 
+JS engine.
+-Transpiled in a way that is understood by JS engine.
+
+Is the transpilation done by parcel itself?
+-No,Parcel is like a manager.It has some dependencies like babel.
+-This transpilation part is done by babel.
+-Babel is a JavaScript compiler or transpiler.
+
+What is going on Behind The Scenes?
+JSX =>React.createElement => JS Object => HTML Element
+
+-JSX behind the scenes is React.createELement.
+-Babel converts the JSX to React.createElement which is understood by react and then it is 
+converted to JS Object. (visit https://babeljs.io/)
+
+Slight difference between jsx and html :-
+-class in className in JSX.
+
+Multiple Lines:-
+if we want to write a long text we wrap it inside paranthesis.
+const heading=(<h1>Hello world
+from Raj</h2>)
+
+Extensions to use:-
+1)Prettier
+2)Bracket Pair COlorizer Toggler
+3)ESlint
+4)Better Comments
+
+React Components:-
+-Everything is a component in react.eg.button,searchbar etc.
+-There are two Types of components:-
+	1)Class Based Components(Old Way)
+	2)Functional Components(New Way)
+
+What is a react functional component?
+-It is just a javascript function.
+-Name should always start with a capital letter.
+-Functional component is a function which returns a JSX code.
+-const headingComponent = () => <h1 id="notHello">Hello world from JSX</h1>;
+-***A functional component doesn't always has to have a explicit return keyword.
+-Below are two ways of writing a react component:-
+
+const HeadingComponent = () => <h1 id="notHello">Hello world from JSX</h1>;
+
+const HeadingComponent2 = () => {
+  return <h1>Hello World From Another Syntax</h1>;
+};
+
+-Below is a react element just to see the difference between a component and a element:-
+const heading=<h1>Hello WOlrd</h1>
+
+How to render a React Component on root?
+root.render(HeadingComponent) Wrong!!
+root.render(<HeadingComponent/>) Correct!!
+-It is like a self closing html tag.
+-THis is the syntax that babel understands.
+-Passing multiple components to render :-
+root.render([<HeadingComponent />, <HeadingComponent2 />]);
+
+How to use a react component inside another component?
+const Title = () => <h1 id="title">Welcome To React!</h1>;
+
+const HeadingComponent = () => (
+  <div id="heading">
+    <Title />
+    <p>This is Interesting!</p>
+  </div>
+);
+
+-This is called Component Composition(Putting a component inside another component).
+
+The use of curly paranthesis:-
+-***You can run any JavaScript code inside a paranthesis.
+const Title = () => <h1 id="title">Welcome To React!</h1>;
+const num = 95;
+const HeadingComponent = ({ num }) => (
+  <div id="heading">
+    <Title />
+    {retSom({ num })}
+    <p>This is Interesting!</p>
+  </div>
+);
+root.render(<HeadingComponent num={num} />);
+
+Some JS Revision about when to use paranthesis:-
+function greet() {
+  return "Hello!";
+}
+
+// Calling the function
+console.log(greet()); // Outputs: "Hello!"
+
+// Referencing the function
+const sayHello = greet;
+console.log(sayHello); // Outputs: [Function: greet]
+console.log(sayHello()); // Outputs: "Hello!"
+
+Compositions:-
+-We can add a component inside component,a component inside element and vice versa.
+
+JSX and Cross site scripting attacks:-
+Any code you write inside {} lets say a API call,then it will be sanitized first by JSX preventing from CSS attacks.
+
+A different way to add a react component inside another component:-
+-It is like a function call inside object literals.
+const HeadingComponent = ({ num }) => (
+  <div id="heading">
+    {/* <Title /> */}
+    {Title()}
+    {retSom({ num })}
+    <p>This is Interesting!</p>
+  </div>
+);
+
+Building our first app:-
+1)Name Your Project (FoodZen)
+2)Build a dummy UI on ms paint.
+3)Low level Plan(How the components should look like).
+	-Header
+		*Logo
+		*Nav-items
+		*Add-to-cart logo
+	-Body
+		*Search Bar
+		*Restaurent Container
+			#Restaurent Card
+				+IMG
+				+Name
+				+Star Rating
+				+Cuisine
+				+Delivery Time
+	-Footer
+		*Copyright 
+		*Links
+		*Contact Info
+
+
+Commands To Set-Up A Project:-
+-npm init
+-npm install -d parcel
+-npm install react react-dom
+
+Props:-
+-Props is a short form for properties.
+-To pass data to a component dynamically we use props.
+-Props are just normal arguments to a function.
+-Passing a prop to a component is same as passing a argument to a function.
+
+For Example:-
+const Card = (props) => {
+  console.log(props);
+  return (
+    <div className="resto-card">
+      <img
+        className="resto-img"
+        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/gp1ityra6utvzqn6ghnv"
+      ></img>
+      <h3 className="resto-name">{props.restoName}</h3>
+      <h4 className="cuisine-name">{props.cuisineName}</h4>
+      <h4 className="star-rating">4.4 Stars</h4>
+      <h4 className="delivery-time">38 minutes</h4>
+    </div>
+  );
+};
+
+-We can also do destructuring on the fly :-
+
+const Card = ({restoName,cuisineName}) => {
+  console.log(props);
+  return (
+    <div className="resto-card">
+      <img
+        className="resto-img"
+        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/gp1ityra6utvzqn6ghnv"
+      ></img>
+      <h3 className="resto-name">{restoName}</h3>
+      <h4 className="cuisine-name">{cuisineName}</h4>
+      <h4 className="star-rating">4.4 Stars</h4>
+      <h4 className="delivery-time">38 minutes</h4>
+    </div>
+  );
+};
+-This is just object destructuring.
+
+Destructuring of props:-
+-We destructure on the basis of keys.
+For Example:-
+<Card resData={responseObj} />
+
+const Card = (props) => {
+  // const { resData } = props; // this is destructuring on the basis of key(key is prop key(resData))
+
+-we can also destructure on the parameter
+const Card = ({resData}) => {
+
+What if we dont want to destructure and access values directly from props?
+-We follow this convention:-
+ props.keyname.fieldsinsideobject
+
+-For Example:-
+<h3 className="resto-name">{props.resData.info.name}</h3>
+
+Cuisines the array:-
+If the api response object has a array of strings just use the join method.
+join Method: The join method takes an array and concatenates its elements into a string, with the specified separator (in this case, ", ").
+
+Optional Chaining for API responses:-
+
+<h3 className="resto-name">{resData.info.name}</h3>
+      <h4 className="cuisine-name">{cuisineString}</h4>
+      <h4 className="star-rating">{resData.info.avgRating} stars</h4>
+      <h4 className="delivery-time">{resData.info.costForTwo}</h4>
+      <h4 className="delivery-time">{resData.info.sla.deliveryTime} mins</h4>
+
+The above code looks very ugly because of resdata.info.avgRating.
+Makes a code barely readable due to the dots.
+
+Below is the code for optional chaining (includes a "?" mark)
+
+const {name,avgRating,costForTwo}=resData?.info;
+
+The question mark in your code snippet is part of the optional chaining operator in JavaScript. This operator allows you to safely access deeply nested properties of an object without having to explicitly check each level for null or undefined values.
+
+Here's what it does:
+
+The expression resData?.info checks if resData is not null or undefined before attempting to access the info property. If resData is null or undefined, the entire expression evaluates to undefined, and no error is thrown.
+
+Key is react:-
+-Whenever we are iterating onto something like using  a map function,each value should be denoted with a unique key.
+
+Why give a key?
+-Remember a tree like diagram?
+-Lets say there is a parent node called container and it has 4 child nodes called card each.
+-If we want to add a new card on the first place or somewhere in between then react doesn't know which card is newly added,so what react does it it clears the container where it rendered all the previous cards and renders all the cards with a newly added card .
+-To prevent this from happening we give unique key to every card so that react can keep track of the cards and if a new card is added,react knows which card is added and renders only that card.
+-This is all because of the render cycle of react.Adding key will help in optimizing the app.
+
+The second parameter to the function which is returned by the map function is index. We can give this index as the key rather than giving keys manually.
+
+for example:-
+{responseList.map((restaurant,index) => (
+          <Card key={index} resData={restaurant} />
+        ))}
+        
+***But reacts official documentation says that never user indexes as the key.
+***index as a key is anti-pattern(because the order might change but if order changes index doesn't change).
+https://robinpokorny.com/blog/index-as-a-key-is-an-anti-pattern/
+
+-Use shorted generater in backend to send keys
+
+Modularizing code in different Files:-
+-Remember to first export the component before importing in the mail file.
+-WHile importing use full file name with extention.For eg.
+import ReactDOM from "react-dom/client";
+import Header from "./components/Header.js";
+import Card from "./components/Card.js";
+
+-Also never keep hardcoded URLs,objects inside components folder or dont hard code things.Add them inside the utils folder so that you can use them all over the app.
+
+All About Exports and Imports:-
+
+-When you have just 1 thing to import you use export default component_name or constant_name;
+-when you have multiple things to import you use export {component_name,constant_name};
+
+Also
+
+-While importing,if the component or constant is exported by default you just import it like:-
+import component_name from "./component_name.js"
+-When you export multiple things,you use :-
+import {component_name} from "./component_name.js";
+
+-All this is about default export and named export.
+
+Why Use Curly Braces {} for Named Exports?
+Curly braces are used to destructure the exported object. When you export multiple things using named exports, they are essentially properties of an object.
+This means that when you import them, you are specifying which properties (or named exports) you want to import from that module.
+Does React Send an Object Out?
+When you perform a named export, the module exports an object where each property corresponds to one of the named exports.
+The curly braces in the import statement are used to destructure this object to access specific exports.
+This approach provides flexibility and clarity, allowing you to import only the parts of a module that you need, which can improve code readability and efficiency.
+
+
+-You can also use both in the same file like below:-
+
+export const LOGO_URL =
+  "https://www.citypng.com/public/uploads/preview/fast-food-delivery-cartoon-character-logo-hd-transparent-png-735811696674987bnjkeubewg.png";
+
+const CDN_URL = "https://media-assets.swiggy.com/swiggy/image/upload/";
+
+export default LOGO_URL;
+export { CDN_URL };
+
+import LOGO_URL from "file-path";
+import {CDN_URL} from "file-path";
+
+Creating A Button:-
+<button>
+      <span>Button</span>
+    </button>
+why to wrap the name of button inside of a span ?
+-Helps in styling and more granular code
+
+Proper way to pass props:-
+-When passing a prop like btnName to a React component, you should consider the type of data you want to pass.
+<Button btnName="Search" />
+
+-Using Curly Braces: If you want to pass a variable or an expression that evaluates to a string, you should use curly braces:
+const buttonName = "Search";
+<Button btnName={buttonName} />
+
+What makes a component re-render and does local variables affect them?
+
+The issue with the "Top Rated Restaurants" button not working as expected is due to the way listOfRestaurants is being manipulated. In your current code, when you click the button, listOfRestaurants is being filtered, but this change is not reflected in the component's state or re-rendered because listOfRestaurants is a local variable inside the Body component. React does not automatically re-render components when local variables change; it only re-renders when state or props change.
+
+To fix this, you should use React's useState hook to manage listOfRestaurants as a state variable.
+
+***Hooks In React:-
+
+-A react hook is a normal javascript function which is given to us by react.It is pre-built.
+-This function is a utility function given by react and has some logic written behind it.
+-There are two very important hooks:-
+	1)useState():-Use state is to create state variable.
+		-A local state variable's scope is inside the component.
+		-When you make "useState()" function call,it will return a state variable.We 
+		 receive it inside a array.
+		-Whatever arguement we pass in the useState(0) call,it becomes the default 		 value.
+*******Remember,always use state variable inside of a component only.Otherwise it wont run.
+
+What is behind the scenes of useState Hook:-
+useState is like array destructuring
+
+const [resList,setResList]=arr;
+
+same as
+
+const resList=arr[0]
+const setResList=arr[1]
+
+  let [listOfRestaurants, setListOfRestaurants] = useState(responseList);
+The above line is just destructuring a array on the go or on the fly.
+
+-Destructuing is extracting elements of arr in resList and setResList.
+
+Meaning of destructuring:-
+-extracting elements of a array or a object.
+
+Example use of useState:-
+let [listOfRestaurants,setListOfRestaurants] = useState(responseList);
+-here the first arguement is the state variable returned by the useState() function call and second arguement is a function which is used to update the state variable.
+
+-Whenever a state variable changes,react re-renders the component.
+-React is only good at DOM operations.This is what it aims,to optimize dom operations.
+
+	2)useEffect()
+-If we want to use react hooks we have to import them from "react" as named imports {useState}.
+
+
+React Reconciliation Algorithm(Also Known As React Fiber):-
+
+
+-Lets say we have a restaurant-container which has 10 restaurant-cards in it.
+-Now What react does is creates a virtual DOM(document object model) of page or UI.
+-The actual DOM meaning:-
+	<div>
+		<div>
+			<img>
+this is the actual DOM with HTML tags.
+-Whereas a virtual dom is madeup of react elements.If we print a react element it prints a javascript object.SO,this virtual dom is nothing but a set of normal javascript objects.
+-Virtual DOM is not the actual DOM but a representation of a actual DOM.
+
+The Diff Algorithm:-
+-Now lets say the restaurant-container which had 10 cards is now filtered out with a filter function and now has 3 cards.So a new Virtual DOM is created.
+-The diff algorithm tries finds out the difference between 2 virtual DOM's(the previous dom with 10 cards and the new dom with 3 cards)
+-After finding out,it will calculate the difference and then actually update the DOM on every render cycle.
+-It is like git diff.
+-THis algorithm tries to find out difference between old object and new object and then actually updates the DOM.
+-Virtual DOM existed before react.It was just javascirpt representation on HTML DOM.
+-So,taking the example of useState,the function used to update the state variable,when it is called,react starts all the reconciliation,diffing algorithm,re-rendering.
+-THis algorithm has come up in React 16.
+
+More About React FIbre Architechture:-https://github.com/acdlite/react-fiber-architecture
+
+-React Fiber is reacts core algorithm.
+
+Why is React Fast:-
+-React is doing efficient dom manipulation.It does it through virtual DOM.
+-It has a efficient diff algorithm which makes it fast.
+-Incremental rendering:-ability to split rendering work into chunks and spread out over multiple frames.
+
+
+Monolith and Microservice Architechture:-
+
+-Previously apps were built using monolith architechture.
+-Lets say a project which has everything inside it for eg. Code for API's,Code of UI,COde of Authentication,COde for database connectivity,Code for notifications(sms) etc everything in a single project.
+-So,even if we have to change color of a single component,we have to build,compile and deploy entire project again with all this bulky code.
+-Now,in todays time world is moving towards microservice architechture.
+-In the microservice architechture,we have different services for different job.
+-we have a a database connectivity service,we have a different authentication service,we have a different UI project , we have a service for our sms sending.So there are different services,and are called microservices.
+-So,all these services combined together forms a big app.
+-All these microservices talk to each other depending upon use cases.
+-For each and every small thing we have a different project and this is called separation of concerns and single responsibility principle.Each service has its own job and no one is interfering.
+
+How do these microservices talk with each other:-
+-All these services run own there own specific ports.They are all deployed on their own specific ports.
+-Now ,if UI wants to connect with backend,UI will call the Backend URL.
+for eg. UI is deployed on www.foodzen.com/ then it will make a call to backend on www.foodzen.com/api
+
+Question is how to make the api calls?
+
+Approach 1:
+
+As soon as the page loads => Make A Api Call => Render The Page
+
+-Suppose the API takes 500ms,we wait for 500 ms and then render the page.
+
+Approach 2:
+
+Load the page => Render the page(skeleton) => Make the API call => Re-render the UI on the basis of data.
+
+In React,we always follow second approach because it gives us the better user experience.
+
+Making The API calls And The useEffect() Hook:-
+
+-useEffect takes 2 arguements.
+1)Callback Function
+2)Dependency Array
+
+useEffect(()=>{
+  console.log("useEffect callled");
+},[]);
+
+-If we write the useEffect like this inside a component,the component will load and as soon as the render cycle completes the function inside the useEffect hook will be called.
+-If you want to do something after the rendering of the component we use useEffect().
+-Remember to perform the dev tools debugging with useEffect EP06 time 26:05 mins.
+-While calling the API you will get ×
+Unhandled Rejection (TypeError): Failed to fetch
+Error.
+-This error is because of CORS(cross-origin resource sharing) policy.
+-Our browsers prevent or block us from making calls from one origin to another due to cors policy.
+
+
+Something Imp about map ad filter:-
+In JavaScript, when using arrow functions, you can omit the return keyword and the curly braces if the function body consists of a single expression. This is known as an implicit return.
+
+Swiggy API and Config Driven UI:-
+-It is industry level practice followed by major companies.
+-The UI is driven by config which we receive from the backend.
+-That means we have writtem the UI once and according to the data(the config) which i am getting from backend the data is getting changed.This is called config driven UI.
+For eg.There can be a carousal(a card) which says 50% off on chinese food.Now this carousal is only available for people from mumbai and not from bangalore.
+-So the UI shows the carousal onlyu when the data comes from the config.
+-This is the latest practice that industry follows to write the UI once and it changes according to the data that comes from the backend.
+-Another example is say there is lohri in punjab so the UI shows blue color,there is makar sankranti in maharashtra then the UI shows green color.So these color comes from the data which is received from the backend.And the UI is driven by the data received.This concept is called config driven UI.
+
+The Swiggy API:-
+Lazy Loading or Pagination: It's possible that the API implements lazy loading or pagination, meaning it only sends a subset of data initially, and more data is loaded as the user scrolls or interacts with the page. This is often referred to as "infinite scrolling" or "lazy loading.
+
+-Swiggys API has a propery in their api(data.pageOffset.nextOffset) which has a key.This makes the cards on the page load slowly as we scroll.This is called pagination.
+-Also,there are multiple cards that has restaurant array but 1 card has restaurant array which has 8 objects.
+-So,we have to iterate over it to find that card.
+
+Shimmer UI:-
+-Showing the depiction or a fake skeleton of the actual UI before the page loads is called shimmer UI.
+-Where do we add shimmer AI?
+-Before the return(jsx),after the api call.
+
+How does shimmer UI work?
+-Since we are calling the fetch() function inside of useEffect hook first the page renders with shimmer ui and basic skeleton.
+-Then the API is called and data is filled in.So we have to return shimmer component on the basis of below if condition
+
+ if (listOfRestaurants.length === 0) {
+    return <Shimmer />;
+  }
+
+This shimmer UI is just an example of conditional rendering.
+
+You must use the ternary operator
+
+return listOfRestaurants.length === 0 ? <Shimmer/> : <Body/>.
+
+
+Creating the Login/Logout Button:-
+-Remember react only re-renders a element or component if the props changes or the state changes so we have to use a state variable meaning useState.
+
+onClick={() =>
+              setLoginState((prevState) =>
+                prevState === "login" ? "logout" : "login",
+              )
+            }
+
+-The login button is inside header component.
+-Since we are changing the content of the login button does just the login button re-render?
+-No.The whole header component re-renders.
+
+const [loginState, setLoginState] = useState("Login");
+
+how does the loginState changes its value even after being a const variable?
+-In this case,react renders the component.
+-Now if we click on the login button,it changes to logout but but but the header component the whole is rerendered and the loginState variable is a whole new variable.
+-So,react is not changing the value of loginState variable,it is re-rendering the entire component and along with it,it sets the new variable loginState's value as logout.
+
+Why does everything in react/javascript has callback functions like onCLick?
+-If we directly call a function in onClick={function()},the function will be called as the line of the code is ran.
+-But we want to execute that function when we click on the button.
+-This is why we use callback functions.
+
+
