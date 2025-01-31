@@ -3,6 +3,8 @@ import { LOGO_URL } from "../utils/constants.js";
 
 const Header = () => {
   const [loginState, setLoginState] = useState("Login");
+  
+  console.log("header rendered");
   return (
     <div className="header">
       <div className="logo-container">

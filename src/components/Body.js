@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
-
+  console.log("body re-rendered");
   useEffect(() => {
     fetchData();
   }, []);
@@ -34,7 +34,7 @@ const Body = () => {
         <input
           className="search-field"
           type="text"
-          placeholder="Search A Dish"
+          placeholder="Search"
         ></input>
         <button className="btn">
           <span className="btn-name">Search</span>
