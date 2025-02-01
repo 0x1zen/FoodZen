@@ -828,3 +828,4 @@ Also remember to convert both the strings to loswer case
 ***return res.info.name.toLowerCase().includes(searchText.toLowerCase());
 
 
+
