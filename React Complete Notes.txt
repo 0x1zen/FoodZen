@@ -886,3 +886,14 @@ WHere do we provide it?
 -This RouterProvider is a component itself.
 -while passing AppLayout is root.render we pass it as below:-
 root.render(<RouterProvider router={appRouter}/>)
+
+How do we write Errors manually:-
+{
+  path: "/",
+  element: <AppLayout />,
+  errorElement: <Error />,
+}
+-We can create a Error component and return it if the main component has a error.
+-We can also use useRouteError hook
+import {useRouteError} from "react-router";
+-It is used to give more details about the error.Displays a better message.
