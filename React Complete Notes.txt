@@ -827,5 +827,62 @@ Also remember to convert both the strings to loswer case
 
 ***return res.info.name.toLowerCase().includes(searchText.toLowerCase());
 
+All About useEffect Hook:-
+-useEffect hook takes two arguements:-
+1)callBack Funtion
+2)dependency array
+-useEffect hook is called after everytime my component renders.
+-But,the dependency array changes the behaviour of the hook.
+-But,having a dependency array isnt mandatory.
+-If we dont have a dependency array,the useEffect hook will be called everytime the componenet renders.
+useEffect(()=>{
+  console.log("useEffect callled");
+});
+-If we have a empty dependency array then the hook will be called only on the initial render(only once).
+useEffect(()=>{
+  console.log("useEffect callled");
+},[]);
+-If we put something inside the dependency array,it is only called when the dependency changes.
+useEffect(()=>{
+  console.log("useEffect callled");
+},[loginState]);
+-Every time the loginState changes the useEFfect hook will be called.
+-****No matter what,useEFfect will always be called after the initial render(only once after the component renders).
 
+All About useState:-
+-ALways write useState inside the component.
+-ALways write useState at the top of the component code.
+-Never use a useState hook inside if else or inside a loop or a function.They are only meant to be created inside of a functional component.This can create inconsistencies in your app.
 
+Routing In React:-
+-We use react router dom for routing which is a npm library.
+-npm install react-router-dom
+-When we are seting up our routes,we do that in out main(App.js file).
+-We import {createBrowserRouter} from 'react-router';
+-Bellow the component is App.js we create a const variable appRouter=createBrowserRouter([{},{}]).
+-createBrowserRouter here will contain a list of objects which has path,element inside it.
+
+For example:-
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+  },
+  {
+    path: "/about",
+    element: <About />,
+  },
+  {
+    path: "/contact",
+    element: <Contact />,
+  },
+]);
+
+How to render it on the page?
+-the appRouter const variable which we made is a configuration.And We have to provide this configuration.
+
+WHere do we provide it?
+-we import {RouterProvider} from "react-router";
+-This RouterProvider is a component itself.
+-while passing AppLayout is root.render we pass it as below:-
+root.render(<RouterProvider router={appRouter}/>)
