@@ -897,3 +897,63 @@ How do we write Errors manually:-
 -We can also use useRouteError hook
 import {useRouteError} from "react-router";
 -It is used to give more details about the error.Displays a better message.
+
+Creating Children Routes:-
+-Similar to path,element and errorElement,we can have a property as children which is a list.
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+    children:[
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+    ],
+    errorElement: <Error />,
+  },
+
+]);
+
+-This makes About and Contact the children of AppLayout.
+
+If we want components to load according to the routes how do we do that?
+-The react-router-dom provides us another component called Outlet:-
+import {createBrowserRouter,RouterProvider,Outlet} from "react-router";
+
+What does this Outlet Do?
+-This is like a placeholder for the components which are changed according to the routes.
+For example:-
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+    children: [
+      {
+        path: "/",
+        element: <Body />,
+      },
+
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+    ],
+    errorElement: <Error />,
+  },
+]);
+
+-In the above code,
+1)if the path is "/" then <AppLayout/> (which contains the Header element) and <Body/> will be loaded.
+2)if the path is "/about" then since the /about is child of <AppLayout> ,the <AppLayout/> and <About/> will be loaded.
+3)Similarly for "/contact",<AppLayout/> and <Contact/> will loaded.
+
+-THis is all done because the <Outlet/> component holds the place in which according to routes the components are filled in.
