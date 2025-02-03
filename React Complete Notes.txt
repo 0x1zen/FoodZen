@@ -957,3 +957,24 @@ const appRouter = createBrowserRouter([
 3)Similarly for "/contact",<AppLayout/> and <Contact/> will loaded.
 
 -THis is all done because the <Outlet/> component holds the place in which according to routes the components are filled in.
+
+How to make that redirect functionality where we click on about us and we are redirected to "/about" route?
+
+In HTML, the href attribute inside an anchor (<a>) tag specifies the URL of the page the link goes to. It stands for "Hypertext Reference."
+
+-We make use of <a> anchor tag and href="/about"
+
+***But But But,in react we dont use anchor tag and href because it refreshes the complete page.
+
+Then how do we naviagte to a new page without reloading the whole page?
+-We use <Link/> component
+import {Link} from "react-router";
+
+How do we use Link Tag?
+<Link to="/about">About Us</Link>
+
+What actuallu happens here?
+-It just refreshes the components,just changes the components rather than refreshing the complete page.
+-This is why react applications are called as Single Page Applications.
+-So basically the AppLayout is our single Page and everything else is just interchanging those components on that single page itself.
+
