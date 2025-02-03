@@ -978,3 +978,18 @@ What actuallu happens here?
 -This is why react applications are called as Single Page Applications.
 -So basically the AppLayout is our single Page and everything else is just interchanging those components on that single page itself.
 
+VIMP)There are Two types of routing that you can have in your react application:-
+1)Client Side Routing:-
+-When we first time load the app,it already has code for all the components.
+-and when we click on the aboutus tag,it just loads the component on the same page.
+-We are not fetching a page,that is why it is called client side routing.
+-Its just one page and conponents get interchanged.This is client side routing.
+2)Server Side Routing:-
+-We have our index.html,aboutus.html,contactus.html etc and when we click on the anchor tag "/aboutus.html",
+it re-renders the page,sends a network call to that aboutus.html and fetches that aboutus.html,and renderes it on our page.
+-This is how it used to be before the js frameworks were introduced.THis is called server side routing.
+
+
+
+
+
