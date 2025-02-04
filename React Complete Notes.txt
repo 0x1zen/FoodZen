@@ -989,7 +989,35 @@ VIMP)There are Two types of routing that you can have in your react application:
 it re-renders the page,sends a network call to that aboutus.html and fetches that aboutus.html,and renderes it on our page.
 -This is how it used to be before the js frameworks were introduced.THis is called server side routing.
 
+Dynamic Routing:-
+-Dynamic routing meaning if we click on a restuarant name,we should be redirected to the information of that particular restaurnat.
+-It is obvious that we cannot have multiple components for multiple restaurants.
+-So,we pass a identifier in the path like below:-
+{
+  path: "/restaurants/:resId",
+  element: <RestaurantMenu />,
+}
+-So,as the resId changes,the data on the page should change.
 
+
+**Revise :-How do we make a api call?
+-We use a async function and fetch function to fetch the api link.
+-We convert that data in readable format using .json method(is also async)
+const fetchData=async ()=>{
+const data=await fetch();
+const response=data.json();
+console.log(response);
+}
+
+Why do we use optional chaining?
+Avoid Errors: When accessing nested properties, if any level of the property chain is null or undefined, attempting to access further properties will result in a runtime error. Optional chaining prevents this by returning undefined instead of throwing an error.
+
+Simplifies Code: Without optional chaining, you would need to write multiple checks to ensure each level of the object exists before accessing the next level. This can lead to verbose and hard-to-read code. Optional chaining simplifies this by allowing you to write concise and readable expressions.
+
+Destructuring Before The API Call:-
+
+-If we are using Shimmer UI before our api call is made.And if we try to destructure the api response,it will give you the properties of the response are undefined(something like immediate in error).
+-so,instead of using ternary operator,use if condition for shimmer first,then destructure,and then return the JSX code
 
 
 

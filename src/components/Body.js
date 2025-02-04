@@ -29,6 +29,8 @@ const Body = () => {
     }
   };
 
+  let count=0;
+
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
@@ -74,8 +76,8 @@ const Body = () => {
         </button>
       </div>
       <div className="resto-container">
-        {filteredRestaurant.map((restaurant, index) => (
-          <Card key={index} resData={restaurant} />
+        {filteredRestaurant.map((restaurant) => (
+          <Card key={count++} resData={restaurant} />
         ))}
       </div>
     </div>
