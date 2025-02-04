@@ -1041,7 +1041,28 @@ Fact about the Link Tag:-
 -With the Link tag,react router is keeping track of this link.
 
 
+Class Based Components:-
+-Class based components is the older way of writing components in react.
+-Similar to functional component is a normal javascript function,Class based components are normal javascript classes.
+-Functional component are normal javascript function which return some jsx.
+-Class based components are normal javascript classes which extends React.Component class and which has a render method which 
+returns some JSX.
 
+class UserClass extends React.Component {
+  render() {
+    return (
+      <div className="user-card">
+        <h2>Name</h2>
+        <h3>Location</h3>
+        <h4>Contact</h4>
+      </div>
+    );
+  }
+}
+
+
+-extends is inheritance.Our made component is inheriting properties from React.Component class.
+-This class based component having the jsx to return is converted into html and is displayed on the web page.
 
 
 
