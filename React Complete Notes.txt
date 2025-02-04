@@ -884,8 +884,9 @@ How to render it on the page?
 WHere do we provide it?
 -we import {RouterProvider} from "react-router";
 -This RouterProvider is a component itself.
--while passing AppLayout is root.render we pass it as below:-
+-while passing AppLayout in root.render we pass it as below:-
 root.render(<RouterProvider router={appRouter}/>)
+-RouterProvider is a configHolder.
 
 How do we write Errors manually:-
 {
@@ -1014,10 +1015,33 @@ Avoid Errors: When accessing nested properties, if any level of the property cha
 
 Simplifies Code: Without optional chaining, you would need to write multiple checks to ensure each level of the object exists before accessing the next level. This can lead to verbose and hard-to-read code. Optional chaining simplifies this by allowing you to write concise and readable expressions.
 
-Destructuring Before The API Call:-
+Error I got before Destructuring Before The API Call:-
 
 -If we are using Shimmer UI before our api call is made.And if we try to destructure the api response,it will give you the properties of the response are undefined(something like immediate in error).
 -so,instead of using ternary operator,use if condition for shimmer first,then destructure,and then return the JSX code
+
+How do we dynamically access the params (restaurant/:params(123)) in our code?
+-import {useParams} from "react-router";
+const params=useParams();
+-if we console.log(params) it prints a  object with exact param we have in our url route.
+-suppose we have url as swiggy.com/restaurant/123
+-this it prints a object with a key and value 123.
+-we can destructure on the fly.
+const {resId} = useParams();
+
+The Important thing for prop key:-
+-key should always be given to the parent jsx element.
+<Link key={restaurant?.info?.id} to={"/restaurants/"+restaurant?.info?.id}>
+  <Card resData={restaurant} />
+</Link>
+
+Fact about the Link Tag:-
+-behind the scenes <Link><Link/> is using anchor tag.
+-Link is a wrapper over anchor tag.
+-With the Link tag,react router is keeping track of this link.
+
+
+
 
 
 

@@ -40,10 +40,10 @@ body {
 }
 
 .resto-card {
-  max-width: 280px;
-  max-height: 450px;
+  width: 280px;
+  height: 370px;
   border: 1px solid #ccc;
-  margin: 5px 10px;
+  margin: 8px 16px;
   padding: 10px;
   background-color: #d8e7dd;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -132,13 +132,15 @@ body {
   background-color: #fff;
   color: #333;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
   margin: 20px auto;
   width: 90%;
 }
 
-.restaurant-details h1, .restaurant-details h2, .restaurant-details h3 {
+.restaurant-details h1,
+.restaurant-details h2,
+.restaurant-details h3 {
   margin: 10px 0;
 }
 
@@ -174,8 +176,9 @@ body {
   padding: 10px;
   border-radius: 8px;
   margin-bottom: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
+
 .menu-item-details {
   flex-grow: 1;
 }
@@ -201,5 +204,7 @@ body {
   margin-left: 20px;
 }
 
-
-
+.router-link {
+  text-decoration: none;
+  color: inherit;
+}
