@@ -3,8 +3,6 @@ import { LOGO_URL } from "../utils/constants.js";
 import { Link } from "react-router";
 const Header = () => {
   const [loginState, setLoginState] = useState("Login");
-  useEffect(() => console.log("useEFfect called"), [loginState]);
-  console.log("header rendered");
   return (
     <div className="header">
       <div className="logo-container">

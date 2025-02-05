@@ -17,6 +17,8 @@ class About extends Component {
         <h1>About Us</h1>
         <User name={"Raj Dubal"} location="Mumbai" contact={"@0x1zen"} />
         <UserClass name={"Raj Dubal"} location="Mumbai" contact={"@0x1zen"} />
+        <UserClass name={"Raj Dubal2"} location="Mumbai" contact={"@0x1zen"} />
+        <UserClass name={"Raj Dubal3"} location="Mumbai" contact={"@0x1zen"} />
       </div>
     );
   }

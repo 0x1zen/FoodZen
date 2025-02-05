@@ -1223,3 +1223,52 @@ and we have log statements inside parents constructor,render and componentDidMou
  -componentDidMount runs after the component is mounted on the dom tree.
  -This way we can prevent waiting for api to give data and then render the page.
 
+ ***VIMP confusing case
+
+ What happens if there are multiple child components inside a parent component?
+
+ parents constructor => parents render => first childs constructor => first childs render => second childs constructor => second childs render => first childs componentDidMount => second childs componentDidMount => parents componentDidMount
+
+ refer to the belowlink for react lifecycle diagram:-
+ https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+
+ There are two phases in react lifecycle:-
+ 1)Render Phase:-
+ -constructor is called
+ -render() method is called
+ 2)Commit Phase
+ -React actually updates the DOM
+ -componentDidMount is called
+
+***VVIMP - so basically to optimize while we have multiple children,the commit phase and render phase is batched together.
+-react does this because DOM manipulation is the most expensive operation when we are loading up the page.
+
+-in the reconciliation process we have seen the diffing algorithm which compares two virtual doms(objects) and finds out difference between them.
+-This is done in the render phase.
+
+-so react tries to batch up the render phase and actual dom update separately .
+-this is why the optimization in :-
+( What happens if there are multiple child components inside a parent component?
+
+ parents constructor => parents render => first childs constructor => first childs render => second childs constructor => second childs render => first childs componentDidMount => second childs componentDidMount => parents componentDidMount )
+
+Commit Phase:-
+parents constructor           }
+parents render                }Batching 
+                              }of 
+first childs constructor      }render
+first childs render           }phase
+                              }for
+second childs constructor     }optimization
+second childs render          }using react reconciliation
+
+<Actual DOM manipulation happens in a single batch>
+first childs componentDidMount      
+second childs componentDidMount
+parents componentDidMount
+
+Is this the same for functional components?
+-yes.
+-In commit phase actual function is called which is returning the jsx
+-Then React updates the dom
+-The commit phase involves effects defined using hooks like useEffect, which run after the component has been rendered to the DOM.
