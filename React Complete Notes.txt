@@ -1064,5 +1064,122 @@ class UserClass extends React.Component {
 -extends is inheritance.Our made component is inheriting properties from React.Component class.
 -This class based component having the jsx to return is converted into html and is displayed on the web page.
 
+Constructor and super method inside a class based component?
+
+constructor(props) {
+  super(props);
+  console.log(props);
+}
+
+Initializing Props Using React.Component's Constructor: By calling super(props), you are indeed passing the props to the constructor of React.Component. This is essential because React.Component sets up this.props with the values you passed. This setup allows your component to access the props using this.props throughout its lifecycle.
+
+Creating an Object of MyComponent: When you instantiate MyComponent, you are creating a new object of MyComponent. Since MyComponent extends React.Component, it inherits all the functionalities of React.Component but also has its own properties and methods as defined in MyComponent.
+
+Extending React.Component: By extending React.Component, MyComponent inherits its methods and properties. The super(props) call is crucial because it ensures that the part of the MyComponent object that is handled by React.Component is properly initialized.
+
+Using the this Keyword: After calling super(props), the this keyword can be used within the constructor of MyComponent. It refers to the current instance of MyComponent. By setting this.props through super(props), you ensure that this.props in your component's constructor and other methods correctly reference the props passed to MyComponent.
+
+It is same as
+
+class MyComponent{
+let name;
+constructor(name){
+this.name=name;
+}
+}
+class MyComponent2 extends MyComponent{
+constructor(name){
+super(name);
+console.log(this.name);
+}
+}
+
+let newComponent=new MyComponent2("Raj");
+
+
+How did we create state variables in a class based Component?
+-Loading or rendering a functional component on our web page means a functional component which is a normal javascript function returning a piece of jsx.SO this is same as we are invoking the functions to return some jsx on our web page.
+-Similarly,loding a class based component on our web page means creating a instace of the class.
+-Whenever you create a instance of a class we call the constructor of a class.And this is the best place to receive props and this is the best place to create state varibales.
+
+class UserClass extends React.Component {
+constructor(props) {
+  super(props);
+
+  this.state = {
+    count: 0,
+  };
+}
+
+-Above is the code to write state variables.
+
+-How do we use the count(state varibale)?
+render() {
+const { name, location, contact } = this.props;
+const {count}=this.state;
+return (
+  <div className="user-card">
+    <h1>{count}</h1>
+    <h2>{name}</h2>
+    <h3>{location}</h3>
+    <h4>{contact}</h4>
+  </div>
+);
+
+-This is similar to how we use props.
+
+Behind the scenes of a functional component:-
+-if we create two state variables
+const [count]=useState(0);
+const [count2]= useState(0);
+
+-behind the scenes react is creating whole big single object of all state variables.
+-similar to 
+ { 
+  count:0
+  count2:0
+ }
+
+How do we update these state varibales?
+-we use the this.setState() method.
+The this.setState() method is part of the React.Component class, which is why you can use it directly in class-based components when you extend React.Component. You do not need to import setState separately; it is inherently available to any class component because of the inheritance from React.Component.
+
+Here's how it works:
+
+Inheritance: When you create a class component by extending React.Component, your component inherits all the methods and properties of React.Component, including setState.
+
+State Management: setState is a built-in method provided by React to manage the component's state. It allows you to update the state and trigger a re-render of the component with the new state.
+
+return (
+      <div className="user-card">
+        <h1>{count}</h1>
+        <h2>{count2}</h2>
+        <button onClick={()=>{
+        this.setState({count:count+1,count2:count2+1});
+        }}>Count Increase</button>
+        <h2>{name}</h2>
+        <h3>{location}</h3>
+        <h4>{contact}</h4>
+      </div>
+    );
+  }
+}
+
+-we can do multiple changes inside this.setState like in the above code.
+
+-similarly we update the state in useState hook 
+
+onClick={()=>{
+setCount(count+1);
+}}
+
+-We can also have a function inside the setCount
+
+setCount((prev)=>prev+1)
+
+-If we have multiple state variables inside a component,react maintains a big object containing all the state variables.
+-If we change the count(a state varibale among many others) only the count(state variable) is touched by reacted and other all are left untouched.
+
+
 
 

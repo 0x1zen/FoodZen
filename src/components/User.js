@@ -1,9 +1,10 @@
-const User=()=>{
+const User=(props)=>{
+    const {name,location,contact}=props;
     return (
         <div className="user-card">
-            <h2>Name</h2>
-            <h3>Location</h3>
-            <h4>Contact</h4>
+            <h2>{name}</h2>
+            <h3>{location}</h3>
+            <h4>{contact}</h4>
         </div>
     )
 }
