@@ -1060,6 +1060,9 @@ class UserClass extends React.Component {
   }
 }
 
+we have to import React from "react"; to use the React.Component class.
+we can also destructure on the fly import {Component} from "react";
+
 
 -extends is inheritance.Our made component is inheriting properties from React.Component class.
 -This class based component having the jsx to return is converted into html and is displayed on the web page.
@@ -1180,6 +1183,43 @@ setCount((prev)=>prev+1)
 -If we have multiple state variables inside a component,react maintains a big object containing all the state variables.
 -If we change the count(a state varibale among many others) only the count(state variable) is touched by reacted and other all are left untouched.
 
+Class Based Component LifeCycles:-
+-Loading the component means mounting the component on the webpage.
+-Constructors are the first things which are called when we have a class based component.
+-after constructor,the render(){} method is called.
 
+-Similar to the render(){} method,we also have another method called as componentDidMount(){}
+-In a class based component,first the constructor is called,then the render() method is called and then the componentDidMount(){} method is called.
 
+contructor(){} => render(){} => componentDidMount(){}
+
+But,what if we have a parent component(class based) and inside which a child component(class based).
+just like
+
+class About extends Component{
+constructor(){
+
+}
+render(){
+return (
+<div>
+<UserClass/>
+</div>
+)
+}
+}
+
+and we have log statements inside parents constructor,render and componentDidMount method as well as childs 
+ constructor,render and componentDidMount methods.Which will be called first?
+
+ parent constructor => parent render => child constructor => child render => child componentDidMount => parent componentDidMount
+
+ -This is because the parent component hasnt finished rendering yet,and in between has to render another component so the parents componentDidMount renders at the end.
+ -This is the lifecycle of a parent child relationship.
+
+ Use Case Of The Method componentDidMount(){} :-
+ -making API calls similar to the useEffect hook.
+ -React wants to quickly render the component,then make the api call and then fill up the page.
+ -componentDidMount runs after the component is mounted on the dom tree.
+ -This way we can prevent waiting for api to give data and then render the page.
 

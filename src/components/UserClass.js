@@ -6,21 +6,29 @@ class UserClass extends React.Component {
 
     this.state = {
       count: 0,
-      count2:0,
+      count2: 0,
     };
+    console.log("child constructor called");
+  }
+  componentDidMount(){
+    console.log("child componentDidMount called");
   }
   render() {
     const { name, location, contact } = this.props;
-    const {count}=this.state;
-    const {count2}=this.state;
-    console.log("component re-rendered");
+    const { count } = this.state;
+    const { count2 } = this.state;
+    console.log("child render called");
     return (
       <div className="user-card">
         <h1>{count}</h1>
         <h2>{count2}</h2>
-        <button onClick={()=>{
-        this.setState({count:count+1,count2:count2+1});
-        }}>Count Increase</button>
+        <button
+          onClick={() => {
+            this.setState({ count: count + 1, count2: count2 + 1 });
+          }}
+        >
+          Count Increase
+        </button>
         <h2>{name}</h2>
         <h3>{location}</h3>
         <h4>{contact}</h4>
