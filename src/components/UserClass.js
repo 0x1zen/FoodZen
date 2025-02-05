@@ -1,37 +1,31 @@
 import React from "react";
+import { GITHUB_API } from "../utils/constants";
 
 class UserClass extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      count: 0,
-      count2: 0,
+      userInfo: {
+        name: "dummy name",
+        location: "dummy location",
+        bio: "dummy bio",
+      },
     };
-    console.log(this.props.name + "constructor called");
   }
-  componentDidMount(){
-    console.log(this.props.name + " componentDidMount called");
+  async componentDidMount() {
+    const data = await fetch(GITHUB_API);
+    const response = await data.json();
+    this.setState({ userInfo: response });
   }
+
   render() {
-    const { name, location, contact } = this.props;
-    const { count } = this.state;
-    const { count2 } = this.state;
-    console.log( this.props.name + "render called");
+    const { name, location, bio,avatar_url } = this.state.userInfo;
     return (
       <div className="user-card">
-        <h1>{count}</h1>
-        <h2>{count2}</h2>
-        <button
-          onClick={() => {
-            this.setState({ count: count + 1, count2: count2 + 1 });
-          }}
-        >
-          Count Increase
-        </button>
-        <h2>{name}</h2>
-        <h3>{location}</h3>
-        <h4>{contact}</h4>
+        <h2>Name : {name}</h2>
+        <h3>location : {location}</h3>
+        <h4>bio: {bio}</h4>
+        <img src={avatar_url}></img>
       </div>
     );
   }

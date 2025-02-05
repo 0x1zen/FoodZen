@@ -9,4 +9,6 @@ const RESTAURANTS_API =
 const MENU_API =
   "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=21.99740&lng=79.00110&restaurantId=";
 
-export { CDN_URL, LOGO_URL, MENU_API, RESTAURANTS_API };
+const GITHUB_API = "https://api.github.com/users/0x1zen";
+
+export { CDN_URL, LOGO_URL, MENU_API, RESTAURANTS_API, GITHUB_API };

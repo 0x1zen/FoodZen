@@ -1272,3 +1272,31 @@ Is this the same for functional components?
 -In commit phase actual function is called which is returning the jsx
 -Then React updates the dom
 -The commit phase involves effects defined using hooks like useEffect, which run after the component has been rendered to the DOM.
+
+Making A API call in componentDidMount :-
+
+async componentDidMount(){
+      const data=await fetch(GITHUB_API);
+      const response=await data.json();
+      console.log(response);
+      this.setState({userInfo:response});
+  }
+
+-Since making a api call is a async operation,we make the componentDidMount function async itself.
+-to access the data we can use destructuring
+
+const {name,location,bio}=this.state.userInfo;
+
+-and initialize the state variable as below
+
+constructor(props) {
+    super(props);
+    this.state={
+      userInfo : {
+        name:"dummy name",
+        location: "dummy location"
+      }
+    };
+  }
+
+-we can fill the default value as some dummy data.
