@@ -1300,3 +1300,30 @@ constructor(props) {
   }
 
 -we can fill the default value as some dummy data.
+
+***VVIMP How to test using a debugger?
+-just write the keyword debugger; in your code and open browser it will automatically start a debugger.
+
+-So here the lifecycle looks like
+1)Constructor is called to initialize values of props and to setup state variables.}in commit phase
+2)page is rendered }in commit phase
+3)React updates the dom
+4)API is called (componentDidMount)
+
+***If you write anything after the return statement inside render method,the code becomes unreachable.
+
+The concept of componentDidUpdate(){} :-
+-After the api is called from componentDidMount
+-THe this.setState is called to set the response form value as the value for state variable.
+-When the state variable is updated , react calls the render method again with the new api updated data
+-React updates the DOM
+-componentDidUpdate is called;
+
+The concept of componentWillUnmount(){} : -
+-Mounting means showing or rendering on the UI.
+-Where as unmounting means removing from the UI.
+-This method will be only called when the component is entirely removed from the UI.
+-Lets say for example if i move from aboutus page to contact us page,componentwillunmount will be called.
+
+***Never compare class based components with functional components
+
