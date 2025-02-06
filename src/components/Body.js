@@ -1,38 +1,34 @@
 import Card from "./Card.js";
 import Shimmer from "./Shimmer.js";
 import { useState, useEffect } from "react";
-// import { RESTAURANTS_API } from "../utils/constants";
-import useRestaurantList from "../utils/useRestaurantList.js";
+import { RESTAURANTS_API } from "../utils/constants";
 import { Link } from "react-router";
 
 const Body = () => {
-  // const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  const [filteredRestaurant, setFilteredRestaurant] = useState(listOfRestaurants);
   const [searchText, setSearchText] = useState("");
-  // const [filteredRestaurant, setFilteredRestaurant] = useState([]);
 
-  const listOfRestaurants=useRestaurantList();
-  const filteredRestaurant=useRestaurantList();
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
+  const fetchData = async () => {
+    const url = RESTAURANTS_API;
+    const response = await fetch(url);
+    const json = await response.json();
+    for (let i = 0; i < json.data.cards.length; i++) {
+      const extractedData =
+        json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants;
 
-  // const fetchData = async () => {
-  //   const url = RESTAURANTS_API;
-  //   const response = await fetch(url);
-  //   const json = await response.json();
-  //   for (let i = 0; i < json.data.cards.length; i++) {
-  //     const extractedData =
-  //       json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle
-  //         ?.restaurants;
-
-  //     if (extractedData && extractedData.length === 8) {
-  //       setListOfRestaurants(extractedData);
-  //       setFilteredRestaurant(extractedData);
-  //       console.log(extractedData);
-  //     }
-  //   }
-  // };
+      if (extractedData && extractedData.length === 8) {
+        setListOfRestaurants(extractedData);
+        setFilteredRestaurant(extractedData);
+        console.log(extractedData);
+      }
+    }
+  };
 
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
@@ -71,7 +67,6 @@ const Body = () => {
             const filteredList = listOfRestaurants.filter(
               (res) => res.info.avgRating >= 4.3,
             );
-            console.log(filteredList);
             setFilteredRestaurant(filteredList);
           }}
         >
