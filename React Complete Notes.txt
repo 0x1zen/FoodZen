@@ -1327,3 +1327,77 @@ The concept of componentWillUnmount(){} : -
 
 ***Never compare class based components with functional components
 
+**Important point for useEFfect hook:-
+if we have two depndencies inside the dependency array
+useEFfect(()=>{},[dep1,dep2])
+-then even if either is changes,the useEffect is called
+-If both dep1 and dep2 change at the same time, the useEffect hook will execute only once in that render cycle. React effectively batches the updates and applies them together, triggering the effect only once after all the state or props updates are processed. This ensures the effect runs after the component has rendered with the latest updates.
+
+Previos problems and newer solutions:-
+-if we want to do something if a state changes then we do
+componentDidUpdate(prevProps,prevState){
+if(prevState.count!== this.State.count){
+console.log("do some stuff").
+}
+}
+-even if we have multiple dependencies,we have separate if-else conditions for that.
+-so react developed useEffect hook with a dependency array.
+
+Cons of Single Page Applications:-
+lets say we have something like 
+
+componentDidMount(){
+this.timer = setInterval(()=>{
+console.log("Hello There!")
+},1000)
+}
+
+-So basically,componentWillUnmount should be called only once after we change from one page(component) to other page(component).But it keeps on printing even if we change pages.
+-If we revisit it,it starts another interval.Keeps on doibling and tripling.
+-THis is a big con of single page applcations.
+
+to fix this we also have to write clear interval inside componentWillUnmount
+
+componentWillUnmount(){
+clearInterval(this.timer);
+}
+
+same thing happens with useEffect also.
+
+-This is the best example of if you are creating mess,then you have to clean it up also.
+
+How do we handle this is useEffect ?
+-useEffect also has a function like componentWillUnmount.
+
+useEffect(()=>{
+  const timer=setInterval(()=>{
+    console.log("useEFfe t called");
+  },1000);
+  return ()=>{
+    clearInterval(timer);
+  }
+},[]);
+
+-we just have to return a function.Which is similar to componentWillUnmount.
+-tells what do do after the component is unmounted.
+
+Real life example of use case of component will unmount:-
+lets say we have a setInterval inside of componentDidMount which calls a api .
+-That api has a page offset.now you want to keep collecting the data but stop when we move to another page(another component) then here comes the use Of componentWillUnmount to clear the interval.
+
+we can make componentDidMount async.but why cant we do with useEffect?
+
+useEFfect(async()=>{},[])   ❌
+
+-The useEffect hook in React is designed to run side effects in a functional component. It does not directly support making the function passed to it async, because useEffect expects a cleanup function or nothing to be returned, and an async function implicitly returns a promise.
+
+However, you can still perform asynchronous operations inside a useEffect by defining an inner async function and calling it. Here's how you can do it:
+
+useEffect(()=>{
+const fetchData=async()=>{
+
+}
+fetchData();
+})
+
+

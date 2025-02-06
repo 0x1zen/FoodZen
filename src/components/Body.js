@@ -13,6 +13,14 @@ const Body = () => {
   useEffect(() => {
     fetchData();
   }, []);
+  useEffect(()=>{
+    const timer=setInterval(()=>{
+      console.log("useEFfe t called");
+    },1000);
+    return ()=>{
+      clearInterval(timer);
+    }
+  },[]);
 
   const fetchData = async () => {
     const url = RESTAURANTS_API;
