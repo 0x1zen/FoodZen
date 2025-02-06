@@ -791,6 +791,8 @@ unless the state variable(searchText is changed);
           <span className="btn-name">Search</span>
         </button>
 
+        e represents the event triggered by the onChange event of the input field. This event object contains information about the event, including the target element that triggered the event.
+
 -On every key press,the whole Body component is getting re-rendered.
 -Whenever the state variable changes,react triggers the reconciliation cycle(re-rendering)
 -Virtual DOM is the object representation of actual DOM.
@@ -1399,5 +1401,52 @@ const fetchData=async()=>{
 }
 fetchData();
 })
+
+
+***A VVIMP fact for useState()
+
+-useState gives use two parts
+1)stateVariable
+2)A function to modify the stateVariable
+
+-The function used to modify the stateVariable expects a value and not an expression
+
+setState(prev=>[...prev,listItem]); ✓
+
+setState(prev=>prev.concat(listItem));✓ This Works because concat method returns a new array with a concatenated value
+
+setState(prev=> prev.push(listItem)) ❌ This doesnt work because we are trying to modify the exisitng array which will most probrably give you a error becasue firstly const const [state,setState] = useState([])
+here state is a const variable that cannot be changed.
+-and secondly react only compares two virtual doms or starts its reconciliation cycles when either a state variable changes or a prop changes.
+
+Single Responsibility Principle:-
+-Suppose you have a function,or you have a class or you have any identity of your code should have single responsibility.
+-For example. header components work should be just displaying a header on our page,a restaurant card should only display a restaurant card on our page.
+-The concept of modularity means breaking our code into different modules so that code becomes more maintaimable and more readable and testable.
+-If we have a very big application and our restaurantcard has a bug then we can just apply test cases to our restaurant card and very easily find the bug.
+
+
+Custom Hooks:-
+-We can make hooks to api calls because at the end of the day hooks are just utility functions.
+-while naming a hook always use "use" in the beginning.It will help react identify that it is a hook.
+-While creating a custom hook,think of what it is getting input and what we are supposed to return from it.
+-For example:- we take restaurantId as input and we return restaurantInfo by fetching the data from api.
+
+Implicit Global Variable Declaration:-
+for (let i = 0; i < json.data.cards.length; i++) {
+extractedData =
+  json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle
+    ?.restaurants;
+
+if (extractedData && extractedData.length === 8) {
+  setListOfRestaurants(extractedData);
+  setFilteredRestaurant(extractedData);
+  console.log(extractedData);
+}
+-Here i have no where declared the extractedData varaible as let,const or var then to it works.
+-this is because js implicitly makes it global variable.
+-This can result in unintended behaviour
+
+
 
 

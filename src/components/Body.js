@@ -1,43 +1,38 @@
 import Card from "./Card.js";
 import Shimmer from "./Shimmer.js";
 import { useState, useEffect } from "react";
-import { RESTAURANTS_API } from "../utils/constants";
+// import { RESTAURANTS_API } from "../utils/constants";
+import useRestaurantList from "../utils/useRestaurantList.js";
 import { Link } from "react-router";
 
 const Body = () => {
-  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  // const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
-  const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+  // const [filteredRestaurant, setFilteredRestaurant] = useState([]);
 
-  console.log("body re-rendered");
-  useEffect(() => {
-    fetchData();
-  }, []);
-  useEffect(()=>{
-    const timer=setInterval(()=>{
-      console.log("useEFfe t called");
-    },1000);
-    return ()=>{
-      clearInterval(timer);
-    }
-  },[]);
+  const listOfRestaurants=useRestaurantList();
+  const filteredRestaurant=useRestaurantList();
 
-  const fetchData = async () => {
-    const url = RESTAURANTS_API;
-    const response = await fetch(url);
-    const json = await response.json();
-    for (let i = 0; i < json.data.cards.length; i++) {
-      extractedData =
-        json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants;
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
-      if (extractedData && extractedData.length === 8) {
-        setListOfRestaurants(extractedData);
-        setFilteredRestaurant(extractedData);
-        console.log(extractedData);
-      }
-    }
-  };
+  // const fetchData = async () => {
+  //   const url = RESTAURANTS_API;
+  //   const response = await fetch(url);
+  //   const json = await response.json();
+  //   for (let i = 0; i < json.data.cards.length; i++) {
+  //     const extractedData =
+  //       json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle
+  //         ?.restaurants;
+
+  //     if (extractedData && extractedData.length === 8) {
+  //       setListOfRestaurants(extractedData);
+  //       setFilteredRestaurant(extractedData);
+  //       console.log(extractedData);
+  //     }
+  //   }
+  // };
 
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
