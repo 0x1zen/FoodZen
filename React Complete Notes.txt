@@ -1432,6 +1432,59 @@ Custom Hooks:-
 -While creating a custom hook,think of what it is getting input and what we are supposed to return from it.
 -For example:- we take restaurantId as input and we return restaurantInfo by fetching the data from api.
 
+How do we write a hook?
+-same as a component.Just instead of returning jsx we return the api data or whatever is required.
+const useRestaurantInfo = (resId) => {
+  const [resInfo, setResInfo] = useState(null);
+  console.log("useRestaurantInfo called");
+  useEffect(() => {
+    fetchMenu();
+  }, []);
+
+  const fetchMenu = async () => {
+    const data = await fetch(MENU_API + resId);
+    const response = await data.json();
+    const card = response?.data?.cards[2]?.card?.card;
+    setResInfo(card);
+    console.log(card);
+  };
+
+  return resInfo;
+};
+
+export default useRestaurantInfo;
+
+*****If a Body component has 2 hook calls,how is re-rendering done?
+-First entire code is executed with both hooks and component itself.
+-The api calls inside of them are asynchronous and so are independent.
+-Lets say the data of first hook is received.
+-Now again the entire component will re-render both hooks and body.
+-Now,since everything including hooks is re-rendered,is the api again called?No,it depends on gthe implementation.Since we use api call inside useEffect and give it a empty dependency array,the is called only once.
+-Now if the second api's data is received,again the entire component will be rendered.
+-Since,the states inside of the hooks are changing,re-rendering(reconciliation is happening).
+
+Creating a online/offline custom hook:-
+import { useEffect, useState } from "react";
+
+const useOnlineStatus = () => {
+  const [onlineStatus, setOnlineStatus] = useState(true);
+  useEffect(() => {
+    window.addEventListener("offline", () => {
+      setOnlineStatus(false);
+    });
+    window.addEventListener("online", () => {
+      setOnlineStatus(true);
+    });
+  }, []);
+  return onlineStatus;
+};
+
+export default useOnlineStatus;
+
+The useEffect itself is not called again when the user goes offline or comes back online. Instead, the event listeners that were set up during the initial render handle these changes. The useEffect is only responsible for setting up these listeners once when the component mounts.
+-So,when the useEffect is called once,both the event listeners are added.
+
+
 Implicit Global Variable Declaration:-
 for (let i = 0; i < json.data.cards.length; i++) {
 extractedData =
@@ -1445,7 +1498,7 @@ if (extractedData && extractedData.length === 8) {
 }
 -Here i have no where declared the extractedData varaible as let,const or var then to it works.
 -this is because js implicitly makes it global variable.
--This can result in unintended behaviour
+-This can result in unintended behaviour.
 
 
 

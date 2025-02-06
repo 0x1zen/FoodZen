@@ -15,6 +15,7 @@ const RestaurantMenu = () => {
   const { name, costForTwoMessage, cuisines, avgRating, sla, areaName } =
     resInfo?.info;
   const { minDeliveryTime, maxDeliveryTime } = sla;
+
   return (
     <div className="restaurant-details">
       <h1>{name}</h1>

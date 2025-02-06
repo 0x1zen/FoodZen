@@ -1,7 +1,7 @@
-import { useState,useEffect } from "react";
-import {MENU_API} from "../utils/constants.js";
-const useRestaurantInfo = (resId)=>{
-  const [resInfo,setResInfo]=useState(null);
+import { useState, useEffect } from "react";
+import { MENU_API } from "../utils/constants.js";
+const useRestaurantInfo = (resId) => {
+  const [resInfo, setResInfo] = useState(null);
   useEffect(() => {
     fetchMenu();
   }, []);
@@ -11,9 +11,10 @@ const useRestaurantInfo = (resId)=>{
     const response = await data.json();
     const card = response?.data?.cards[2]?.card?.card;
     setResInfo(card);
+    console.log(card);
   };
 
   return resInfo;
-}
+};
 
 export default useRestaurantInfo;

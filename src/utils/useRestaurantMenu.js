@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { MENU_API } from "../utils/constants";
 const useRestaurantMenu = (resId) => {
   const [menuInfo, setMenuInfo] = useState([]);
-
   useEffect(() => {
     fetchMenu();
   }, []);
@@ -11,7 +10,7 @@ const useRestaurantMenu = (resId) => {
     const response = await data.json();
     const totalCards =
       response?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
-    
+    console.log(totalCards);
     for (let i = 0; i < totalCards.length; i++) {
       if (totalCards[i]?.card?.card?.itemCards) {
         const data = totalCards[i]?.card?.card?.itemCards;
