@@ -1507,6 +1507,33 @@ if (extractedData && extractedData.length === 8) {
 -this is because js implicitly makes it global variable.
 -This can result in unintended behaviour.
 
+Linters and Syntax:-
+What are Linters?
+
+A linter is a tool that analyzes code for potential errors, coding style violations, and best practices. It helps maintain clean, readable, and bug-free code by catching issues early.
+
+Linters are used in various programming languages:
+
+    JavaScript/TypeScript → ESLint
+    Python → Pylint, Flake8
+    C++ → Clang-Tidy
+    CSS → Stylelint
+
+What is ESLint?
+
+ESLint is a linter specifically for JavaScript and TypeScript. It helps detect and fix:
+✅ Syntax errors
+✅ Coding style issues
+✅ Unused variables
+✅ Inconsistent formatting
+✅ Potential bugs
+
+-If we setup linter for react,and we dont use capital letter for a Component or "use" keyword for a hook,it would start throwing
+error.
+-This is a industry level practice.
+
+
+
 
 
 
