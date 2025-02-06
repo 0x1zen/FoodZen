@@ -1429,6 +1429,8 @@ Single Responsibility Principle:-
 Custom Hooks:-
 -We can make hooks to api calls because at the end of the day hooks are just utility functions.
 -while naming a hook always use "use" in the beginning.It will help react identify that it is a hook.
+-Though,using the word "use" before the name of the hook is not mandatory,but recommended by react.Similar to component name
+starting with a capital letter.
 -While creating a custom hook,think of what it is getting input and what we are supposed to return from it.
 -For example:- we take restaurantId as input and we return restaurantInfo by fetching the data from api.
 
@@ -1483,6 +1485,11 @@ export default useOnlineStatus;
 
 The useEffect itself is not called again when the user goes offline or comes back online. Instead, the event listeners that were set up during the initial render handle these changes. The useEffect is only responsible for setting up these listeners once when the component mounts.
 -So,when the useEffect is called once,both the event listeners are added.
+-in the code,we add event listener to the global object which is the window object.
+-From the event listener code we are telling that,if user if offline/online run this callback function.
+
+Can we show online/offline status as green and red symbol?
+-<li className="online-status">Online Status : {onlineStatus ? "🟢" : "🔴"}</li>
 
 
 Implicit Global Variable Declaration:-
