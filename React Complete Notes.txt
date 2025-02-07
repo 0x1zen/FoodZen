@@ -1571,6 +1571,23 @@ When do we use Code Splitting or dynamic bundling?
 -When our app is bloating or taking a lot of time to load,that is when your bundle size has increased a lot.
 -To fix this we have to use code splitting.
 
+Different types of styiling:-
+-Vanilla CSS
+-SASS and SCSS
+-Styled Components(used by uber)
+-MUI,ChakraUI,ShadCN
+-TailwindCss
+
+Setting up Tailwind Css:-
+https://tailwindcss.com/docs/installation/framework-guides/parcel
+
+What is postcss?
+-if we want to transform css inside of javascript,postcss is the tool to do that.
+
+what is postcssrc file?
+-it is a configuration for postcss
+-Using this our project understands what is written inside tailwind.
+
 
 
 

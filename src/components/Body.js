@@ -7,7 +7,8 @@ import useOnlineStatus from "../utils/useOnlineStatus.js";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
-  const [filteredRestaurant, setFilteredRestaurant] = useState(listOfRestaurants);
+  const [filteredRestaurant, setFilteredRestaurant] =
+    useState(listOfRestaurants);
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
@@ -30,12 +31,14 @@ const Body = () => {
     }
   };
 
-  const onlineStatus=useOnlineStatus();
+  const onlineStatus = useOnlineStatus();
 
-  if(onlineStatus===false){
-    return <h1>Looks Like You Are Offline.Please Check Your Internet Connection</h1>
+  if (onlineStatus === false) {
+    return (
+      <h1>Looks Like You Are Offline.Please Check Your Internet Connection</h1>
+    );
   }
-  
+
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
@@ -81,8 +84,12 @@ const Body = () => {
       </div>
       <div className="resto-container">
         {filteredRestaurant.map((restaurant) => (
-          <Link key={restaurant?.info?.id} to={"/restaurants/"+restaurant?.info?.id} className="router-link">
-              <Card resData={restaurant} />
+          <Link
+            key={restaurant?.info?.id}
+            to={"/restaurants/" + restaurant?.info?.id}
+            className="router-link"
+          >
+            <Card resData={restaurant} />
           </Link>
         ))}
       </div>
