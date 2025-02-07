@@ -1533,6 +1533,18 @@ error.
 -This is a industry level practice.
 
 
+Bundler Recap:-
+-Bundlers main job is bundling the react code and giving out a single js file.
+-It contains all the code for all the components.
+-Your js file size increases by how many component it holds.
+-the dev build of js file is larger than production build becasue the minification and optimization is not happened yet.
+-You cant make a large scale production ready application if we dont take care of this.Our app will become slow.
+-If we want to build a large scale app,we have to break our app down into smaller pieces.
+-So,we have to make smaller bundles of the files.
+-This process is known as chunking or code splitting or dynamic bundling or lazy loading or on demand loading,
+dynamic import.
+
+
 
 
 
