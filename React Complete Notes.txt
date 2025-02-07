@@ -1544,7 +1544,32 @@ Bundler Recap:-
 -This process is known as chunking or code splitting or dynamic bundling or lazy loading or on demand loading,
 dynamic import.
 
+How do we do that?
+-We bundle our code into logical bundles.By logical bundles,we mean that each bundle should have enough code for a single feature on the webpage.
+-We just load the code on demand.React uses client side routing so all the code is received at the first go.But it would make the code bulky.So,few pages which are rarely visited we can lazily load.
+-So,when we visit that page,then only we load it.
 
+const Grocery=lazy(()=> import("./components/Grocery.js"));
+
+-Instead of normally importing a component,we import it inside of a callback function inside the lazy method.
+-lazy is a named import from "react" itself.
+import {lazy} from "react";
+-So,now our main bundle does not have code for the grocery component.It is completely different bundle.
+
+-But,it can fail since it is lazily loading.And would take time to load and browser would show error screen.
+-To fix this react gives us a component called Suspense.
+import {Suspense} from "react";
+
+and we wrap our component inside the suspense component
+
+<Suspense><Grocery/></Suspense>
+
+-But,Suspense takes a prop called fallback .This fallback is a placeholder which says load this until my lazily loaded component loads.
+-Same like a Shimmer UI.
+
+When do we use Code Splitting or dynamic bundling?
+-When our app is bloating or taking a lot of time to load,that is when your bundle size has increased a lot.
+-To fix this we have to use code splitting.
 
 
 
