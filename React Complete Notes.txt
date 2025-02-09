@@ -1663,7 +1663,11 @@ Cons about tailwind:-
 -Makes the code less readable.
 
 Media Queries And Responsiveness:-
-
+-sm is small meaning for mobile phones.
+-if we do bg-blue-500 sm: bg-yellow-50 that means if it is small screen,bg color will change to yello,for large screen bg color
+would remain blue.
+-Similarly for md and lg.
+ 
 
 
 
