@@ -1643,7 +1643,27 @@ w-[10px] or bg-[#ECECEC]
 Why use tailwind css:-
 -Dont have to everytime switch to index.css file to give styling for every class-name.
 -Not having a bulky css file.
--It is very dynamic,the css you use only that css code is put into your app.
+-It is very dynamic,the css you use only that css code is put into your app.That means when parcel will bundle our web page it
+will only include the css which is required on our web page.
+-Helps in not having redundant css.
+
+Relevant sections in Parcel Docs:
+
+    Tree Shaking & Dead Code Elimination
+    Parcel Docs - Tree Shaking
+
+        "Parcel automatically eliminates unused JavaScript through tree shaking, reducing the size of your final bundle."
+
+    CSS Modules Optimization
+    Parcel Docs - CSS Modules
+
+        "CSS modules only include styles that are imported in JavaScript files, avoiding unnecessary CSS."
+
+Cons about tailwind:-
+-Makes the code less readable.
+
+Media Queries And Responsiveness:-
+
 
 
 
