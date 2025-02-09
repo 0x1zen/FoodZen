@@ -35,26 +35,28 @@ const Body = () => {
 
   if (onlineStatus === false) {
     return (
-      <h1>Looks Like You Are Offline.Please Check Your Internet Connection</h1>
+      <h1 className="text-center text-xl font-semibold text-red-600">
+        Looks Like You Are Offline.Please Check Your Internet Connection
+      </h1>
     );
   }
 
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body">
-      <div className="search-bar-area">
+    <div className="p-4">
+      <div className="flex flex-wrap gap-4 mb-6">
         <input
-          className="search-field"
+          className="p-2 border border-gray-300 rounded-md w-80 focus:ring-2 focus:ring-blue-400 outline-none"
           type="text"
           placeholder="Search"
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
           }}
-        ></input>
+        />
         <button
-          className="btn"
+          className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition"
           onClick={() => {
             if (searchText === "") {
               setFilteredRestaurant(listOfRestaurants);
@@ -68,10 +70,10 @@ const Body = () => {
             }
           }}
         >
-          <span className="btn-name">Search</span>
+          Search
         </button>
         <button
-          className="btn"
+          className="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition"
           onClick={() => {
             const filteredList = listOfRestaurants.filter(
               (res) => res.info.avgRating >= 4.3,
@@ -79,15 +81,15 @@ const Body = () => {
             setFilteredRestaurant(filteredList);
           }}
         >
-          <span className="btn-name">Top Rated Restaurants</span>
+          Top Rated Restaurants
         </button>
       </div>
-      <div className="resto-container">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filteredRestaurant.map((restaurant) => (
           <Link
             key={restaurant?.info?.id}
-            to={"/restaurants/" + restaurant?.info?.id}
-            className="router-link"
+            to={"/restaurants/"+restaurant?.info?.id}
+            className="block hover:scale-105 transition-transform"
           >
             <Card resData={restaurant} />
           </Link>

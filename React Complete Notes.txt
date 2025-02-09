@@ -1588,6 +1588,57 @@ what is postcssrc file?
 -it is a configuration for postcss
 -Using this our project understands what is written inside tailwind.
 
+Styling in tailwind css:-
+-Tailwind css provides classnames to all the css you want to write inside your app.
+-Adding global styling in index.css file
+
+@layer base {
+  * {
+    @apply box-border m-0 p-0;
+  }
+  html{
+    background-color: #ECECEC;
+    min-height: 100vh;
+  }
+  body{
+    background-color: #ECECEC;
+    min-height: 100vh;
+  }
+}
+
+-Global styling means this styling will be applied to all the components on the web page
+
+-How to center a div?
+-If we want to center a div,we have to give properties to the parent element.
+-display:flex will get them all lined up horizontally.
+-justify-content:center will center the div horizontally
+-align-items:center will center the div vertically.
+
+Re-styling Shimmer:-
+{Array(8)
+        .fill("")
+        .map((_, index) => (
+          <div
+            key={index}
+            className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 h-40 bg-gray-300 animate-pulse rounded-md mb-6"
+          ></div>
+        ))}
+
+  Array(8) → Creates a new array with a length of 8.
+.fill("") → Fills the array with empty strings (""). This ensures that we have a predefined length array to iterate over.
+.map((_, index) => (...))
+
+    This iterates over each element of the array.
+    _ (underscore) is a throwaway variable, meaning we don’t care about the actual values inside the array, just the index.
+    index is used as the unique key for each div.
+    Each iteration returns a div that acts as a placeholder (shimmer effect).
+
+The _ (underscore) we used here is because we always have some item to ierate upon,and we pass the first parameter as the item,
+but since we are creating the array with the function Array(8),we dont have anything,so we are using the unserscore.
+
+
+
+
 
 
 

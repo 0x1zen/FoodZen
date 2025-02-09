@@ -12,6 +12,7 @@ class UserClass extends React.Component {
       },
     };
   }
+
   async componentDidMount() {
     const data = await fetch(GITHUB_API);
     const response = await data.json();
@@ -21,10 +22,14 @@ class UserClass extends React.Component {
   render() {
     const { login, bio, avatar_url } = this.state.userInfo;
     return (
-      <div className="user-card">
-        <img src={avatar_url}></img>
-        <h1>Name : {login}</h1>
-        <h3>{bio}</h3>
+      <div className="flex flex-col items-center bg-white shadow-2xl p-12 rounded-lg max-w-lg w-full">
+        <img
+          src={avatar_url}
+          alt="Avatar"
+          className="w-48 h-48 rounded-full mb-8"
+        />
+        <h1 className="text-4xl font-semibold text-gray-800 mb-4">Name: {login}</h1>
+        <h3 className="text-xl text-gray-600 text-center">{bio}</h3>
       </div>
     );
   }

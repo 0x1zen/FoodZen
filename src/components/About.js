@@ -1,5 +1,5 @@
-import UserClass from "./UserClass.js";
 import React, { Component } from "react";
+import UserClass from "./UserClass.js";
 
 class About extends Component {
   constructor(props) {
@@ -7,8 +7,8 @@ class About extends Component {
   }
   render() {
     return (
-      <div>
-        <UserClass/>
+      <div className="flex justify-center items-center min-h-screen min-w-full bg-gray-50 p-6">
+        <UserClass />
       </div>
     );
   }

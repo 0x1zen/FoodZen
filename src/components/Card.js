@@ -6,17 +6,19 @@ const Card = (props) => {
   const cuisines = resData.info.cuisines;
   const cuisineString = cuisines.join(", ");
   const imgLink = CDN_URL;
+
   return (
-    <div className="resto-card">
+    <div className="border border-gray-300 rounded-lg p-4 shadow-md hover:shadow-lg transition min-h-130">
       <img
-        className="resto-img"
+        className="w-full h-80 object-cover rounded-md"
         src={imgLink + resData.info.cloudinaryImageId}
-      ></img>
-      <h3 className="resto-name">{name}</h3>
-      <h4 className="cuisine-name">{cuisineString}</h4>
-      <h4 className="star-rating">{avgRating} stars</h4>
-      <h4 className="delivery-time">{costForTwo}</h4>
-      <h4 className="delivery-time">{sla.deliveryTime} mins</h4>
+        alt={name}
+      />
+      <h3 className="text-lg font-semibold mt-2">{name}</h3>
+      <h4 className="text-gray-600">{cuisineString}</h4>
+      <h4 className="text-yellow-500 font-medium">{avgRating} ⭐</h4>
+      <h4 className="text-gray-700">{costForTwo}</h4>
+      <h4 className="text-green-500">{sla.deliveryTime} mins</h4>
     </div>
   );
 };
