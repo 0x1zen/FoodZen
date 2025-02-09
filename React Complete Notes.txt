@@ -1636,6 +1636,14 @@ Re-styling Shimmer:-
 The _ (underscore) we used here is because we always have some item to ierate upon,and we pass the first parameter as the item,
 but since we are creating the array with the function Array(8),we dont have anything,so we are using the unserscore.
 
+Hard coded values in tailwind:-
+-If we want to give some hard coded values we can use square brackets
+w-[10px] or bg-[#ECECEC]
+
+Why use tailwind css:-
+-Dont have to everytime switch to index.css file to give styling for every class-name.
+-Not having a bulky css file.
+-It is very dynamic,the css you use only that css code is put into your app.
 
 
 
