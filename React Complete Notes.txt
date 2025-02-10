@@ -1667,7 +1667,122 @@ Media Queries And Responsiveness:-
 -if we do bg-blue-500 sm: bg-yellow-50 that means if it is small screen,bg color will change to yello,for large screen bg color
 would remain blue.
 -Similarly for md and lg.
- 
+
+Higher order components in React:-
+-Higher order components are functions which takes component as a parameter and returns a component.
+-It takes a existing component and enhances it,tweaks it a little and returns it back.
+-Higher order component is a function,which returns a component which returns some jsx which includes some tweaks or changes.
+
+How does a higher order component looks like?
+
+export const withFlatDiscount = (Card)=>{
+return (props)=>{
+return (
+<div>
+<label>50 rs off</label?
+<Card {...props}/>
+</div>
+);
+}
+}
+
+-We pass props inside the function which is returned by the return keyword.
+-While using the component which is received by paramter,if it expects some props,we should pass props using the spread operator.
+- in React, props is an object.The spread operator (...) in JavaScript is used to unpack elements from an array or properties from an object.
+
+How do we use the Higher order component?
+-First we create a component out of it.
+const CardWithFlatDiscount = withFlatDiscount(Card);
+-Here CardWithFlatDiscount is a Higher Order Component.
+
+<div>
+  {filteredRestaurant.map((restaurant) => (
+    <Link
+    >
+      {restaurant?.info?.aggregatedDiscountInfoV3 ? (
+        <CardWithFlatDiscount resData={restaurant} />
+      ) : (
+        <Card resData={restaurant} />
+      )}
+    </Link>
+  ))}
+</div>
+
+-Above is the code to use it by making sure to pass props which are needed for the component which is passed as a arguement.
+
+Why do we pass props using ... spread operator?
+-Higher order component are pure functions.
+-Pure function means it will not modify the code of the component receives,it will not change the default behavior of the Card component it receives.
+-We are just adding something on top of it.
+
+***Can we pass some extra props to the higher order component?
+-Yes.
+-Can we use it inside the component which was sent as an argument?
+-Yes,but only for the cards for which the condition is met.
+Like we are using Higher order component for Discount,so out of all the cards which is passed to the original component,the discounted cards only can receive the extra props.
+
+import { CDN_URL } from "../utils/constants";
+
+const Card = (props) => {
+  const { resData } = props;
+  const { name, avgRating, costForTwo, sla } = resData?.info;
+  const cuisines = resData.info.cuisines;
+  const cuisineString = cuisines.join(", ");
+  const imgLink = CDN_URL;
+
+  return (
+    <div className="border border-gray-300 rounded-lg p-2 shadow-md hover:shadow-lg transition min-h-100">
+      <img
+        className="w-full h-50 object-cover rounded-md"
+        src={imgLink + resData.info.cloudinaryImageId}
+        alt={name}
+      />
+      <h3 className="text-lg font-semibold mt-2">{name + props.nonConcern}</h3>
+      <h4 className="text-gray-600">{cuisineString}</h4>
+      <h4 className="text-yellow-500 font-medium">{avgRating} ⭐</h4>
+      <h4 className="text-gray-700">{costForTwo}</h4>
+      <h4 className="text-green-500">{sla.deliveryTime} mins</h4>
+    </div>
+  );
+};
+export const withFlatDiscount = (Card) => {
+  return (props) => {
+    const {nonConcern} = props;
+    const { resData } = props;
+    return resData?.info?.aggregatedDiscountInfoV3 ? (
+      <div>
+        <label>
+          {resData?.info?.aggregatedDiscountInfoV3?.header + " ABOVE" + nonConcern}
+        </label>
+        <Card {...props} />
+      </div>
+    ) : (
+      <div>
+        <label></label>
+      </div>
+    );
+  };
+};
+
+export default Card;
+
+-Check for yourself in the above code,where we are writing the name.
+
+
+How do we position the label over the card?
+-we make the parent container as relative.
+
+In Tailwind CSS, the properties for setting the position of an element relative to its closest positioned ancestor (usually set with relative, absolute, fixed, or sticky positioning) are controlled using the following classes for bottom, left, right, and top:
+
+bottom-[value]
+left-[value]
+right-[value]
+top-[value]
+
+***Task:-
+Create a todolist with setting status as high priority for some todo lists using HOC.
+
+
 
 
 

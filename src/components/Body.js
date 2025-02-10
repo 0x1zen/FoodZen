@@ -1,4 +1,4 @@
-import Card from "./Card.js";
+import Card, { withFlatDiscount } from "./Card.js";
 import Shimmer from "./Shimmer.js";
 import { useState, useEffect } from "react";
 import { RESTAURANTS_API } from "../utils/constants";
@@ -10,7 +10,7 @@ const Body = () => {
   const [filteredRestaurant, setFilteredRestaurant] =
     useState(listOfRestaurants);
   const [searchText, setSearchText] = useState("");
-
+  const CardWithFlatDiscount = withFlatDiscount(Card);
   useEffect(() => {
     fetchData();
   }, []);
@@ -25,6 +25,7 @@ const Body = () => {
           ?.restaurants;
 
       if (extractedData && extractedData.length === 8) {
+        console.log(extractedData);
         setListOfRestaurants(extractedData);
         setFilteredRestaurant(extractedData);
       }
@@ -88,10 +89,14 @@ const Body = () => {
         {filteredRestaurant.map((restaurant) => (
           <Link
             key={restaurant?.info?.id}
-            to={"/restaurants/"+restaurant?.info?.id}
+            to={"/restaurants/" + restaurant?.info?.id}
             className="block hover:scale-105 transition-transform"
           >
-            <Card resData={restaurant} />
+            {restaurant?.info?.aggregatedDiscountInfoV3 ? (
+              <CardWithFlatDiscount resData={restaurant} nonConcern={"true"} />
+            ) : (
+              <Card resData={restaurant} />
+            )}
           </Link>
         ))}
       </div>
