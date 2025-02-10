@@ -11,4 +11,14 @@ const MENU_API =
 
 const GITHUB_API = "https://api.github.com/users/0x1zen";
 
-export { CDN_URL, LOGO_URL, MENU_API, RESTAURANTS_API, GITHUB_API };
+const DEFAULT_IMG =
+  "https://content.jdmagicbox.com/v2/comp/def_content/caterers/default-caterers-9.jpg";
+
+export {
+  CDN_URL,
+  LOGO_URL,
+  MENU_API,
+  RESTAURANTS_API,
+  GITHUB_API,
+  DEFAULT_IMG,
+};

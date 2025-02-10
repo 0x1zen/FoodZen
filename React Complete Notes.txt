@@ -1783,6 +1783,19 @@ top-[value]
 Create a todolist with setting status as high priority for some todo lists using HOC.
 
 
+How to set a default image if img from cdn fails?
+-use a event handler
+
+onError={(e)=>{
+  e.target.onerror=null;
+  e.target.src=DEFAULT_IMG;
+}}
+
+When an image fails to load, the onError event fires. If we set a fallback image inside onError, but that fallback image 
+also fails to load for some reason, the onError event will trigger again and again, leading to an infinite loop.
+
+What is accordion UI?
+-In this UI we have a arrow which can expand and collapse the data inside it.
 
 
 

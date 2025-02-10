@@ -14,14 +14,18 @@ const useRestaurantInfo = (resId) => {
     setResInfo(card);
     const totalCards =
       response?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
-    console.log(totalCards);
-    for (let i = 0; i < totalCards.length; i++) {
-      if (totalCards[i]?.card?.card?.itemCards) {
-        const data = totalCards[i]?.card?.card?.itemCards;
-        setMenuInfo(data);
-        break;
-      }
-    }
+    const menu=totalCards.filter((c)=>{
+      return c?.card?.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory";
+    })
+    console.log(menu);
+    setMenuInfo(menu);
+    // for (let i = 0; i < totalCards.length; i++) {
+    //   if (totalCards[i]?.card?.card?.itemCards) {
+    //     const data = totalCards[i]?.card?.card?.itemCards;
+    //     setMenuInfo(data);
+    //     break;
+    //   }
+    // }
   };
 
   return [resInfo,menuInfo];
