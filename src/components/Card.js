@@ -8,7 +8,7 @@ const Card = (props) => {
   const imgLink = CDN_URL;
 
   return (
-    <div className="border border-gray-300 rounded-lg p-2 shadow-md hover:shadow-lg transition min-h-100">
+    <div className="border border-gray-300 bg-white rounded-lg p-2 shadow-md hover:shadow-lg transition min-h-100">
       <img
         className="w-full h-50 object-cover rounded-md"
         src={imgLink + resData.info.cloudinaryImageId}

@@ -1794,8 +1794,28 @@ onError={(e)=>{
 When an image fails to load, the onError event fires. If we set a fallback image inside onError, but that fallback image 
 also fails to load for some reason, the onError event will trigger again and again, leading to an infinite loop.
 
+React rendering and Map iteration:-
+-If we map through a array and return a component,everything will be loaded all in for once.
+-this is because of how react does rendering.
+-react iterates on map(prints logs which are equal to total items in that array) and after that calls the component the number of times the iterator is called.
+-This happens once.Because react renders first,then updates the DOM.
+
+Tailwind Divisions:-
+-Tailwind divides our page into 12 divisions.
+-So,if we do w-6/12 that means the component takes with of half the page.
+-m-auto brings content in center.
+
 What is accordion UI?
 -In this UI we have a arrow which can expand and collapse the data inside it.
+const [showItems, setShowItems] = useState(false);
+{showItems && itemCards.map((item) => {
+  const { id } = item?.card?.info;
+  return <ItemList key={id} item={item} />;
+})}
+
+-ABove code is used to build a toggle feature.If both conditions true then show itemCards.
+-Also,we can change icons with the same code
+<h1 className="font-bold text-lg">{showItems ? "▲" : "▼"}</h1>
 
 
 

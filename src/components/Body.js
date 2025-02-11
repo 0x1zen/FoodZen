@@ -93,7 +93,7 @@ const Body = () => {
             className="block hover:scale-105 transition-transform"
           >
             {restaurant?.info?.aggregatedDiscountInfoV3 ? (
-              <CardWithFlatDiscount resData={restaurant} nonConcern={"true"} />
+              <CardWithFlatDiscount resData={restaurant} />
             ) : (
               <Card resData={restaurant} />
             )}

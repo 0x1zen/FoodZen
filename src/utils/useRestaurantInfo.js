@@ -14,11 +14,14 @@ const useRestaurantInfo = (resId) => {
     setResInfo(card);
     const totalCards =
       response?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
-    const menu=totalCards.filter((c)=>{
-      return c?.card?.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory";
-    })
-    console.log(menu);
-    setMenuInfo(menu);
+    const categories = totalCards.filter((c) => {
+      return (
+        c?.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+      );
+    });
+    console.log(categories);
+    setMenuInfo(categories);
     // for (let i = 0; i < totalCards.length; i++) {
     //   if (totalCards[i]?.card?.card?.itemCards) {
     //     const data = totalCards[i]?.card?.card?.itemCards;
@@ -28,7 +31,7 @@ const useRestaurantInfo = (resId) => {
     // }
   };
 
-  return [resInfo,menuInfo];
+  return [resInfo, menuInfo];
 };
 
 export default useRestaurantInfo;
