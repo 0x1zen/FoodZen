@@ -1856,8 +1856,32 @@ https://react.dev/learn/sharing-state-between-components#lifting-state-up-by-exa
 ***Task:-Implement a todo list which takes title,description mandatory and priority as optional store it in a array.While displaying show all the todo-items but,the ones with the priority status should be shown using HOC with  a tag of priority status with it.Also Implement Accordion UI where only title is visible,on click expands with description,but the priority tag should always be displayed.
 
 
+Some Basics:-
+Inside of index.html file:-
+<link rel="stylesheet" href="./index.css"/>
+why href while using css where as
+<script src="./App.js" type="module"></script>
+why src while using js?
 
 
+1. Why href in <link> for CSS?
 
+<link rel="stylesheet" href="./index.css" />
 
+    The href (Hypertext Reference) attribute refers to a resource (in this case, index.css).
+    The browser fetches the CSS file and applies the styles to the document.
+    The CSS file remains a separate entity that is referenced but not directly executed.
+
+2. Why src in <script> for JavaScript?
+
+<script src="./App.js" type="module"></script>
+
+    The src (Source) attribute points to a script file (in this case, App.js).
+    The browser fetches the JavaScript file and executes it in the document.
+    JavaScript needs to be executed, whereas CSS is just linked and applied.
+
+Key Difference
+
+    href in <link>: References a resource (CSS is applied but not executed).
+    src in <script>: Loads and executes the script (JavaScript needs execution).
 
