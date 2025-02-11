@@ -1817,6 +1817,45 @@ const [showItems, setShowItems] = useState(false);
 -Also,we can change icons with the same code
 <h1 className="font-bold text-lg">{showItems ? "▲" : "▼"}</h1>
 
+React Developer Tools Extention:-
+-It gives us two more features in our chrome developer tools.
+-Components and Profiler
+-Components shows the virtual DOM of components.
+-Profiler can be used to record our actions on react page.Also gives time taken to render it on our page.
+-Inside profiler,we can find flamegraph,ranked and timeline.
+-Flamegraph gives a graph of our actions on the web page.
+-Ranked ranks the actions in decreasing order with respect to time taken.
+
+Implementing a feature where if one accordium is expanded then other all should collapse:-
+
+-Concept of controlled component:-
+-Now in the code we have RestaurantCategory component which has a state varibale to control the accordium to expand and collapse.So,RestaurantCategory component is a uncontrolled component
+-But,if we pass the state variable which controls the expand/collapose via props  from RestaurantMenu component then the RestaurantCategory Component will become controlled component becasue it is now controlled by RestaurantMenu.
+const [showIndex,setShowIndex]=useState(0);
+{categories.map((category,index) => {
+  const { title } = category?.card?.card;
+  return <RestaurantCategory showItems={showIndex===0 && true} key={title} category={category} />;
+})}
+
+-In the above code only the category only the category at the first index will be dropped down(expanded) and other all will remain collapsed.
+
+Now the question is how can i modify a state variable which is in the parent component(RestaurantMenu component which is controlling RestaurantCategory component)?
+-It is not possible directly but indirectly we can do that.
+-We pass the setShowIndex function from the useState as a prop to the child component
+
+setShowIndex={()=>setShowIndex(index)}
+
+-If user clicks on a category,then we call a function inside which we just call
+setShowIndex() function
+
+*****This overall concept is called as lifting state up or state uplifiting.
+*** Link to official docs:-
+https://react.dev/learn/sharing-state-between-components#lifting-state-up-by-example
+
+***Task:-Implement the accordiums in to do lists.On click the description should show(expand) and other all list items collapse.
+***Task:-Implement a todo list which takes title,description mandatory and priority as optional store it in a array.While displaying show all the todo-items but,the ones with the priority status should be shown using HOC with  a tag of priority status with it.Also Implement Accordion UI where only title is visible,on click expands with description,but the priority tag should always be displayed.
+
+
 
 
 

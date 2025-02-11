@@ -2,10 +2,12 @@ import Shimmer from "./Shimmer.js";
 import useRestaurantInfo from "../utils/useRestaurantInfo.js";
 import { useParams } from "react-router";
 import RestaurantCategory from "./RestaurantCategory.js";
+import { useState } from "react";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
   const [resInfo, menuInfo] = useRestaurantInfo(resId);
+  const [showIndex, setShowIndex] = useState(null);
 
   if (resInfo === null) {
     return <Shimmer />;
@@ -31,10 +33,24 @@ const RestaurantMenu = () => {
       </div>
       <h1 className="text-2xl font-bold mb-4">Restaurant Menu</h1>
       <div className="flex flex-col space-y-6">
-        {menuInfo.map((menuItem) => {
+        {menuInfo.map((menuItem, currIndex) => {
           const { title } = menuItem?.card?.card;
-          return <RestaurantCategory key={title} category={menuItem} />;
+          return (
+            <RestaurantCategory
+              showItems={currIndex === showIndex && true}
+              setShowIndex={() =>
+                setShowIndex((prev) => (currIndex === prev ? null : currIndex))
+              }
+              key={title}
+              category={menuItem}
+            />
+          );
         })}
+        {/* -har restaurant category ke liye uska index assign ho gaya
+            -jab bhi koi category pe click karta hai toh setShowIndex uss category ka index showIndex ko assign               kar dega
+            -Q, agar koi firse usi index pe click kare to kisi bhi prakar se showItems fasle return karna chahiye
+            -
+        */}
       </div>
     </div>
   );

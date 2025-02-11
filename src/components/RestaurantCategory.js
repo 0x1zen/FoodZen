@@ -1,12 +1,13 @@
+import { useState } from "react";
 import ItemList from "./ItemList.js";
-import {useState} from "react";
 const RestaurantCategory = (props) => {
-  const [showItems, setShowItems] = useState(false);
-  const { category } = props;
+  const { category, showItems,currIndex, setShowIndex } = props;
   const { title, itemCards } = category?.card?.card;
-  const handleClick = () => {
-    setShowItems((prev) => (prev == false ? true : false));
-  };
+
+  const handleClick=()=>{
+      setShowIndex();
+  }
+  
   return (
     <div>
       <div className="flex flex-col w-full my-1 bg-white border-double rounded-lg shadow-lg p-4">
@@ -20,10 +21,11 @@ const RestaurantCategory = (props) => {
           <h1 className="font-bold text-lg">{showItems ? "▲" : "▼"}</h1>
         </div>
         {showItems && <hr className="m-2 text-gray-400"></hr>}
-        {showItems && itemCards.map((item) => {
-          const { id } = item?.card?.info;
-          return <ItemList key={id} item={item} />;
-        })}
+        {showItems &&
+          itemCards.map((item) => {
+            const { id } = item?.card?.info;
+            return <ItemList key={id} item={item} />;
+          })}
       </div>
     </div>
   );
