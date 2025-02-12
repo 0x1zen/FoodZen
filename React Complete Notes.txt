@@ -1925,3 +1925,61 @@ But how do we access it inside a class based component?
         </h1>
 
 
+<h1>
+          Logged In User : <UserContext.Consumer>
+            {({loggedInUser})=><p>{loggedInUser}s</p>}
+          </UserContext.Consumer>
+        </h1>
+
+-React gives the inbuilt function inside it to return some jsx.It is same as a anonymous function which has no name.
+
+-Both are the above ways to consume the context.
+
+-Now what if the user logs in?Ho do we pass the data to the UserContext to rename the Guest to User-Name?
+
+return (
+    <UserContext.Provider value={{loggedInUser:userName}}>
+    <div className="app">
+      <Header />
+      <Outlet />
+    </div>
+    </UserContext.Provider>
+  );
+
+  We wrap in the entire App.js component to set the UserContext with user name.We do it because we want to use the UserContext
+  all over our app with the name of the user. 
+  -If i only wrap my header inside the UserContext.Provider component then only header will hav loggedInUser as userName 
+  and other all components will have Guest.
+
+  Another Back To Basics:-
+  we use href while importing css but use src while importing js.
+  Now here the link tag uses behind the scenes href.So does that mean ther js code wont execute?
+  Also,we use href inside <a> anchor tag.Why?
+  
+  href (Hyperlink Reference) → "Where to go / Where to find"
+
+    Used in: <a>, <link>
+    Purpose: Specifies the location of a resource.
+    Does not execute anything, just tells the browser where to navigate or find a file.
+
+For navigation (in <a> or React Router's <Link>)
+
+<a href="https://google.com">Go to Google</a>
+
+For CSS styles (in <link>)
+
+<link rel="stylesheet" href="styles.css">
+
+
+src (Source) → "Fetch and Execute"
+
+    Used in: <script>, <img>, <audio>, <video>
+    Purpose: Fetches the resource and (if applicable) executes it.
+
+    For JavaScript files (in <script>)
+
+<script src="app.js"></script>
+
+For images (in <img>)
+
+<img src="logo.png" alt="Logo">

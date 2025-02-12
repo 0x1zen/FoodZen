@@ -53,7 +53,7 @@ const Header = () => {
           >
             {loginState}
           </button>
-          <li className="text-white hover:text-gray-300">{loggedInUser}</li>
+          <li className="text-white hover:text-gray-300 font-bold">{loggedInUser}</li>
         </ul>
       </div>
     </div>
