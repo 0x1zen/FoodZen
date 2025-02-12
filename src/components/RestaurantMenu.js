@@ -46,11 +46,6 @@ const RestaurantMenu = () => {
             />
           );
         })}
-        {/* -har restaurant category ke liye uska index assign ho gaya
-            -jab bhi koi category pe click karta hai toh setShowIndex uss category ka index showIndex ko assign               kar dega
-            -Q, agar koi firse usi index pe click kare to kisi bhi prakar se showItems fasle return karna chahiye
-            -
-        */}
       </div>
     </div>
   );

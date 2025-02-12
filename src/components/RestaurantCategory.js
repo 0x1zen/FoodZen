@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ItemList from "./ItemList.js";
 const RestaurantCategory = (props) => {
-  const { category, showItems,currIndex, setShowIndex } = props;
+  const { category, showItems, setShowIndex } = props;
   const { title, itemCards } = category?.card?.card;
 
   const handleClick=()=>{
