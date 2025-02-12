@@ -1,6 +1,5 @@
 import React from "react";
 import { GITHUB_API } from "../utils/constants";
-import Shimmer from "./Shimmer.js";
 
 class UserClass extends React.Component {
   constructor(props) {
@@ -30,7 +29,7 @@ class UserClass extends React.Component {
           className="w-48 h-48 rounded-full mb-8"
         />
         <h1 className="text-4xl font-semibold text-gray-800 mb-4">
-          Name: {login}
+          {login}
         </h1>
         <h3 className="text-xl text-gray-600 text-center">{bio}</h3>
       </div>

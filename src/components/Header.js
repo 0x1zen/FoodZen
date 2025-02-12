@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
 import { LOGO_URL } from "../utils/constants.js";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
+import UserContext from "../utils/UserContext.js";
 
 const Header = () => {
   const [loginState, setLoginState] = useState("Login");
   const onlineStatus = useOnlineStatus();
-
+  const {loggedInUser}=useContext(UserContext);
   return (
     <div className="flex justify-between items-center p-3 bg-orange-500 border border-black">
       <div className="flex-shrink-0">
@@ -52,6 +53,7 @@ const Header = () => {
           >
             {loginState}
           </button>
+          <li className="text-white hover:text-gray-300">{loggedInUser}</li>
         </ul>
       </div>
     </div>

@@ -1885,3 +1885,43 @@ Key Difference
     href in <link>: References a resource (CSS is applied but not executed).
     src in <script>: Loads and executes the script (JavaScript needs execution).
 
+
+Props Drilling:-
+-In a real world react application,there are lot of components and a lot of nesting in it.
+-Passing data from component to component is a very big challenge.
+-React is one way data stream.Meaning the data is passed from parent component to their child components
+and further from child components to their child components.
+-In our app, we are passing the data from RestaurantMenu to RestaurantCategory to ItemList,i.e. down
+the stream.
+-So,we need some kind of global data to access the data anywhere and in whichever component.
+
+How do we do that?
+
+React Context:-
+-Context is like a global place where the data is placed and any component in our app can access our
+data.
+-It is like a central store.
+-It solves the problem of prop drilling.
+For eg.Login status
+
+How do we create a Context?
+import { createContext } from "react";
+
+const UserContext = createContext({
+    loggedInUser : "Default User"
+});
+
+-we use createContext a built in utility function given by react.
+
+How do we access it in our components?
+const {loggedInUser}=useContext(UserContext);
+
+-for this react gives a hook called useContext which takes in the UserContext as arguement and we can
+destructure the data on the fly.
+
+But how do we access it inside a class based component?
+        <h1>
+          Logged In User : <UserContext.Consumer></UserContext.Consumer>
+        </h1>
+
+
