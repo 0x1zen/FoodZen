@@ -2041,3 +2041,5 @@ Q.What if i want to modify the loggedInUser from another component?
 and use it like below:-
 const {loggedInUser,setUserName}=useContext(UserContext);
 <input className="border p-2" onChange={(e)=>setUserName(e.target.value)} value={loggedInUser}></input>
+
+-THis is like tieing the context with a state function.
