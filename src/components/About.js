@@ -11,7 +11,7 @@ class About extends Component {
         <UserClass />
         <h1>
           Logged In User : <UserContext.Consumer>
-            {({loggedInUser})=><p>{loggedInUser}s</p>}
+            {({loggedInUser})=><p>{loggedInUser}</p>}
           </UserContext.Consumer>
         </h1>
       </div>

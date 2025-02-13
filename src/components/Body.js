@@ -1,9 +1,10 @@
 import Card, { withFlatDiscount } from "./Card.js";
 import Shimmer from "./Shimmer.js";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { RESTAURANTS_API } from "../utils/constants";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
+import UserContext from "../utils/UserContext.js";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -11,6 +12,7 @@ const Body = () => {
     useState(listOfRestaurants);
   const [searchText, setSearchText] = useState("");
   const CardWithFlatDiscount = withFlatDiscount(Card);
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -41,6 +43,8 @@ const Body = () => {
       </h1>
     );
   }
+
+  const {setUserName , loggedInUser}=useContext(UserContext);
 
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
@@ -84,6 +88,7 @@ const Body = () => {
         >
           Top Rated Restaurants
         </button>
+        <input className="border p-2" onChange={(e)=>setUserName(e.target.value)} value={loggedInUser}></input>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filteredRestaurant.map((restaurant) => (

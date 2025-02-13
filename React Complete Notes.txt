@@ -1951,6 +1951,21 @@ return (
   -If i only wrap my header inside the UserContext.Provider component then only header will hav loggedInUser as userName 
   and other all components will have Guest.
 
+  Can we have different values for different components?Yes
+  return (
+    
+    <div className="app">
+      <UserContext.Provider value={{loggedInUser:userName}}>
+      <Header />
+      </UserContext.Provider>
+      <UserContext.Provider value={{loggedInUser:"Elon Musk"}}>
+      <Outlet />
+      </UserContext.Provider>
+    </div>
+  );
+
+  -But giving a value is must.
+
   Another Back To Basics:-
   we use href while importing css but use src while importing js.
   Now here the link tag uses behind the scenes href.So does that mean ther js code wont execute?
@@ -1983,3 +1998,46 @@ src (Source) → "Fetch and Execute"
 For images (in <img>)
 
 <img src="logo.png" alt="Logo">
+
+***onChange in Two Cases for input box as text and input box as checckbox
+
+- <input
+          className="p-2 border border-gray-300 rounded-md w-80 focus:ring-2 focus:ring-blue-400 outline-none"
+          type="text"
+          placeholder="Search"
+          value={searchText}
+          onChange={(e) => {
+            setSearchText(e.target.value);
+          }}
+        />
+
+-value is a attribute provided to us by html.
+-the onchange method is changing the value of searchText state varibale as we type.
+
+similarly 
+
+ <input
+          className="p-2 border border-gray-300 rounded-md w-80 focus:ring-2 focus:ring-blue-400 outline-none"
+          type="checkBox"
+          placeholder="Search"
+          checked={isChecked}
+          onChange={(e) => {
+            setIsChecked(e.target.checked);
+          }}
+        />
+
+For CheckBox we have the checked attribute.
+
+Q.What if i want to modify the loggedInUser from another component?
+-we can pass the state function inside the <UserContext.Provider/>
+
+<UserContext.Provider value={{ loggedInUser: userName , setUserName }}>
+      <div className="app">
+        <Header />
+        <Outlet />
+      </div>
+    </UserContext.Provider>
+
+and use it like below:-
+const {loggedInUser,setUserName}=useContext(UserContext);
+<input className="border p-2" onChange={(e)=>setUserName(e.target.value)} value={loggedInUser}></input>
