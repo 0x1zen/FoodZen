@@ -2043,3 +2043,6 @@ const {loggedInUser,setUserName}=useContext(UserContext);
 <input className="border p-2" onChange={(e)=>setUserName(e.target.value)} value={loggedInUser}></input>
 
 -THis is like tieing the context with a state function.
+
+
+Intro To Redux:-
