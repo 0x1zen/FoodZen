@@ -2046,3 +2046,24 @@ const {loggedInUser,setUserName}=useContext(UserContext);
 
 
 Intro To Redux:-
+
+-Install @reduxjs/toolkit and react-redux
+-Build our store
+-Connect our store to our app
+-Create a slice or card slice 
+-dispatch action
+-Read the data using selector
+
+Steps:-
+1)First we create a store using configureStore 
+import {configureStore} from "@reduxjs/toolkit"
+const appStore=configureStore()
+
+2)To use it inside out app we use Provider
+
+import {Provider} from "react-redux";
+
+-We import provider from react-redux because react-redux library is bridging the gap between react and redux.
+
+<Provider store={}>
+</Provider>
