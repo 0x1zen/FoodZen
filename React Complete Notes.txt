@@ -2047,6 +2047,31 @@ const {loggedInUser,setUserName}=useContext(UserContext);
 
 Intro To Redux:-
 
+-Redux Toolkit which is the newer version of redux is a library used for state management.
+-Redux store is a whole big object and it is kept in a central place.
+-But,it it okay to store all the data inside a big object?Yes
+-Redux has the concept of slices.
+-Slices are logical partitions in redux.
+For Example,restaurant cards data will be stored in one slice,logged in users data will be stored in other and so on.
+
+-We can initialize the cart section with an empty array to pass the restaurant data to the cart
+
+But how do i implement such a feature of sending the restaurant data to card by pressing add button?
+-We cant directly modify the cart.
+-When we will click on Add button,it will dispatch a action which will call a function to modify the
+cart array in the cart slice.
+-This function which is called byu the dispatched action is called as a reducer.
+-So,when we click on add to cart button,it dispatches a action,which calls the reducer function which
+modifies the slice of our redux store.
+-This was to write data.
+
+But how do we read data?
+-For this,we use something known as selector.
+-We use selector to read the data from the redux store and modify our react component.
+-This process of using selector to read data from a slice from redux store is known as subscribing
+to the store.
+-So,basically it means our component where we are accesing data is in sync with the store
+
 -Install @reduxjs/toolkit and react-redux
 -Build our store
 -Connect our store to our app
