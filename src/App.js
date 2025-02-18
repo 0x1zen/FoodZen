@@ -10,9 +10,11 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 import UserContext from "./utils/UserContext.js";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore.js";
+import Cart from "./components/Cart.js";
 
 const Grocery = lazy(() => import("./components/Grocery.js"));
 const About = lazy(() => import("./components/About.js"));
+
 const AppLayout = () => {
   const [userName, setUserName] = useState("");
   useEffect(() => {
@@ -54,6 +56,12 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/cart",
+        element: (
+          <Cart/>
+        ),
       },
       {
         path: "/grocery",

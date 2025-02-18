@@ -27,7 +27,6 @@ const Body = () => {
           ?.restaurants;
 
       if (extractedData && extractedData.length === 8) {
-        console.log(extractedData);
         setListOfRestaurants(extractedData);
         setFilteredRestaurant(extractedData);
       }

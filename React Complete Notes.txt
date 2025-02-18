@@ -2092,3 +2092,82 @@ import {Provider} from "react-redux";
 
 <Provider store={}>
 </Provider>
+
+3)Creating a slice
+-actions are small apis to communicate with the redux store
+
+
+We create slice as a different component
+
+import { createSlice } from "@reduxjs/toolkit";
+
+const cartSlice = createSlice({
+  name: "cart",
+  initialState: {
+    items: [],
+  },
+  reducers: {
+    addItem:(state,action)=>{
+      state.items.push(action.payload)
+    },
+    removeItem:(state,action)=>{
+      state.items.pop()
+    },
+    clearCart:(state,action)=>{
+      state.items.length=0;
+    },
+  }
+});
+export const {addItem,removeItem,clearCart}=cartSlice.actions;
+export default cartSlice.reducer;
+
+-The create slice method has a object with three main properties:-
+1)name
+2)initialState
+3)reducers
+
+
+-a reducer is a object which has 
+reducer_name as key and a function as property
+addItem:(state,action)=>{
+  state.items.push(action.payload)
+}
+
+here state is the initialState which we created earlier and action is a api to carry the paylaod.
+
+-In each reducer function we are mutating the state.
+
+-the addItem is the reducer function which is mapped to a action
+
+While exporting we export a destructured object and reducer like below
+export const {addItem,removeItem,clearCart}=cartSlice.actions;
+export default cartSlice.reducer;
+
+In JavaScript, when you use export default, you can import it with any name you choose. The default export is essentially a single value that can be imported with any identifier.
+
+As,there are small reducer functions in each slice,there is a big reducer function in the appStore
+
+import { configureStore } from "@reduxjs/toolkit";
+
+const appStore = configureStore({
+  reducer: {},
+});
+export default appStore;
+
+-For each slice,we will have a different reducer
+
+Now how do we subscribe to the store:-
+-using a selector
+-a selector is nothing but a hook in react.
+-It is a named import from the react-redux library
+
+import {useSelector} from "react-redux";
+
+
+Some Basics of JS:-
+
+onCLick={handleCLick} -> onClick it will call the handle Click function.Suitable when we dont want to pass any arguements.
+onClick={handleClick(item)} ->it will execute immediately when the entire code is ran.It will not do anything
+onClick because the function was already executed
+onCLick={()=>handleClick(item)} ->it is a callback function.The anonymous function onCLick calls the handleCLick function.It is suitable when we want to pass some arguements
+

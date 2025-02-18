@@ -1,13 +1,17 @@
-import { useState,useContext } from "react";
+import { useState, useContext } from "react";
 import { LOGO_URL } from "../utils/constants.js";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
 import UserContext from "../utils/UserContext.js";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [loginState, setLoginState] = useState("Login");
   const onlineStatus = useOnlineStatus();
-  const {loggedInUser}=useContext(UserContext);
+  const { loggedInUser } = useContext(UserContext);
+
+  const cartItems = useSelector((store) => store.cart.items);
+
   return (
     <div className="flex justify-between items-center p-3 bg-orange-500 border border-black">
       <div className="flex-shrink-0">
@@ -34,8 +38,8 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Link to="/cart" className="text-white hover:text-gray-300">
-              Cart
+            <Link to="/cart" className="text-white hover:text-gray-300 flex ">
+              Cart <p className="bg-green-500 rounded-full">{cartItems.length}</p>
             </Link>
           </li>
           <li>
@@ -47,13 +51,15 @@ const Header = () => {
             className="ml-4 px-4 py-2 bg-green-200 border border-black rounded-md transition hover:bg-red-500 hover:text-white"
             onClick={() =>
               setLoginState((prevState) =>
-                prevState === "Login" ? "Logout" : "Login"
+                prevState === "Login" ? "Logout" : "Login",
               )
             }
           >
             {loginState}
           </button>
-          <li className="text-white hover:text-gray-300 font-bold">{loggedInUser}</li>
+          <li className="text-white hover:text-gray-300 font-bold">
+            {loggedInUser}
+          </li>
         </ul>
       </div>
     </div>

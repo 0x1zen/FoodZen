@@ -1,7 +1,25 @@
+import { useDispatch } from "react-redux";
 import { CDN_URL, DEFAULT_IMG } from "../utils/constants";
+import { addItem } from "../utils/cartSlice.js";
 const ItemList = ({ item }) => {
   const { name, price, defaultPrice, imageId, description, ratings } =
     item?.card?.info;
+
+  const dispatch = useDispatch();
+
+  const handleAddItem = () => {
+    // dipatch an action
+    dispatch(
+      addItem({
+        name,
+        price,
+        defaultPrice,
+        imageId,
+        description,
+        ratings,
+      }),
+    );
+  };
   return (
     <div className="flex items-center justify-between p-4 my-2 border-double border-b-1 border-gray-300 rounded-lg  shadow-md hover:shadow-lg cursor-pointer transition-all">
       <div className="flex flex-col w-3/4">
@@ -24,7 +42,10 @@ const ItemList = ({ item }) => {
             e.target.src = DEFAULT_IMG;
           }}
         />
-        <button className="w-9/12 font-bold text-lg bg-white text-green-600 p-1 rounded-lg absolute top-17 border-black hover:bg-gray-100">
+        <button
+          className="w-9/12 font-bold text-lg bg-white text-green-600 p-1 rounded-lg absolute top-17 border-black hover:bg-gray-100"
+          onClick={handleAddItem}
+        >
           Add
         </button>
       </div>
