@@ -1,23 +1,15 @@
 import { useDispatch } from "react-redux";
 import { CDN_URL, DEFAULT_IMG } from "../utils/constants";
-import { addItem } from "../utils/cartSlice.js";
+import { addItem } from "../utils/cartSlice";
 const ItemList = ({ item }) => {
   const { name, price, defaultPrice, imageId, description, ratings } =
     item?.card?.info;
-
   const dispatch = useDispatch();
 
   const handleAddItem = () => {
     // dipatch an action
     dispatch(
-      addItem({
-        name,
-        price,
-        defaultPrice,
-        imageId,
-        description,
-        ratings,
-      }),
+      addItem(item),
     );
   };
   return (

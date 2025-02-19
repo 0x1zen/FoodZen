@@ -2171,3 +2171,23 @@ onClick={handleClick(item)} ->it will execute immediately when the entire code i
 onClick because the function was already executed
 onCLick={()=>handleClick(item)} ->it is a callback function.The anonymous function onCLick calls the handleCLick function.It is suitable when we want to pass some arguements
 
+
+Why do we use the const dispatch=useDispatch() and 
+dispatch(action())
+
+and why not
+
+useDispatch(action())
+
+No, you cannot directly use useDispatch(clearCart()) because of the way React Redux works.
+ Here's why:
+Why Can't You Use useDispatch(clearCart()) Directly?
+
+useDispatch() returns a function, not an object
+useDispatch() returns the Redux dispatch function.
+clearCart() is an action creator, meaning it returns an action object (not a function).
+
+If you do useDispatch(clearCart()), it will execute immediately
+clearCart() is a function call, so when React renders the component, it will execute immediately
+ (even before clicking the button).
+This would clear the cart every time the component renders instead of waiting for a button click.
