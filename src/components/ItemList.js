@@ -8,9 +8,7 @@ const ItemList = ({ item }) => {
 
   const handleAddItem = () => {
     // dipatch an action
-    dispatch(
-      addItem(item),
-    );
+    dispatch(addItem(item));
   };
   return (
     <div className="flex items-center justify-between p-4 my-2 border-double border-b-1 border-gray-300 rounded-lg  shadow-md hover:shadow-lg cursor-pointer transition-all">

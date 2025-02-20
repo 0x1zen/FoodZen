@@ -2195,3 +2195,166 @@ This would clear the cart every time the component renders instead of waiting fo
 
 ***next task:-
 the item object is drilled down to item list and cart.js.use context api to store it in context.
+
+All about using redux right:-
+
+1)Selectors
+
+-When you are using a selector,make sure you are subscribing to the right store.
+
+const store=useSelector((store)=>store)
+
+const store=useSelector((store)=>{
+return store;
+})
+
+both the above code is same
+
+also
+
+we can destucture it by
+
+const cartItems=store.cart.items;
+
+-so we are basically storing the items array in cartItems.
+
+but
+
+const store=useSelector((store)=>store)
+
+const cartItems=store.cart.items;
+
+-the problem in the above code is we are subscribing the whole store.That means if there is any other slice
+lets say for an example there is another slice for loggedInUser,and the loggedInUser changes then re-render 
+would happen,and the cart slice would also get affected.
+-this is a huge performance issue.
+
+const cartItems=useSelector((store)=>store.cart.items)
+
+-To fix this,in above code,we are subscribing only to the slice we want in particular.
+
+2)Reducer:-
+
+-Inside our app store,we have one big "reducer" for a single slice.
+const appStore = configureStore({
+  reducer: {
+    cart: cartSliceReducer,
+  },
+});
+
+-And,inside our slice,we have multiple small reducers
+reducers: {
+  addItem: (state, action) => {
+    state.items.push(action.payload);
+  },
+  removeItem: (state, action) => {
+    state.items.pop();
+  },
+  clearCart: (state, action) => {
+    state.items.length = 0;
+  },
+}
+-Understand the difference between the word reducer(in store) and reducers(in slice).
+
+-Also when you are exporting,you export a big reducer from the slice
+
+export const { addItem, removeItem, clearCart } = cartSlice.actions;
+export default cartSlice.reducer;
+
+-S0,basically a reducer is combination of small reducers.
+
+3)Vanilla Redux/Older redux:-
+-Redux used to tell that dont mutate state.
+
+state.items.push(action.payload)
+
+-the above code was prohibited.
+
+-So,earlier they used to create a copy of the state
+
+const newState=[...state];
+
+newState.items.push(action.payload);
+return newState;
+
+-Returning was mandatory.
+
+-But in redux toolkit,it completely changed,we must mutate the state.Also,returning is not mandatory anymore.
+
+-In redux toolkit,the state is still immutable.Actually what vanilla redux used to ask developers to do,it is
+now doing it  behind the scenes.
+
+const newState=[...state];
+
+newState.items.push(action.payload);
+return newState;
+
+-redux is doing all the above code behind the scenes.The above code is just abstracted with below code
+
+state.items.push(action.payload)
+
+-Redux  uses something known as immerjs
+-Immer library is used to find the difference between the originial state and the mutated state and give back
+the new state.
+-It is like a diffing algorithm of react.
+
+4)Mutating the state:-
+-Why do we do state.items.length=0 nad why not state=[]?
+
+-The answer to it is
+
+lets say oour original state is originalState=["pizza"]
+
+inside our clearCart: (state,action)=>{
+  console.log(state); ->it wound print something called as proxy(object) because of the way in which redux handles all this.
+-To actually print the object we can do
+console.log(current(state)); ->we import current from @reduxjs/toolkit as named import.
+  state=[] ->the state will be set to empty but *** this is the local variable state,not the originalState.Just a local copy.
+  console.log(state); ->prints a empty array but the originalState is still the same.
+}
+-So in the above code we are not actually mutating the state ,we are just chaning the value of local state variable.
+-This was mentioned earlier about redux abstracting the immutability by creating a newState,modifying it and then returning it.
+
+const newState=[...state];
+newState.push("burger");
+return newState;
+
+5)The proxy object:-
+Proxy Object: In JavaScript, a proxy object is created using the Proxy constructor. It allows you to define custom behavior for fundamental operations (e.g., property lookup, assignment, enumeration, function invocation, etc.). This means you can intercept and redefine how these operations are handled for a particular object.
+
+Redux Toolkit and Immer: Redux Toolkit uses a library called Immer under the hood. Immer leverages proxy objects to enable developers to write "mutative" code that appears to directly modify the state, while actually maintaining immutability. When you modify the state inside a reducer, Immer tracks these changes using a proxy and produces a new immutable state object.
+
+Why Proxy?: The proxy object allows Immer to detect changes to the state without actually modifying the original state object. This is why when you log the state directly, you see a proxy object. It represents the current draft state that Immer is managing.
+
+current Function: The current function from @reduxjs/toolkit is used to retrieve the current state from the proxy object. It extracts the plain JavaScript object from the proxy, allowing you to view or log the actual state values.
+
+6)An alternate way to mutate the state:-
+
+clearCart: (state,action)=>{
+return [];
+}
+-The above code would also set the originalState as empty(will actually mutate it);
+clearCart:(state,action)=>{
+state.items.length=0;
+}
+-Both the codes are same functionality wise.
+-But return [] does throw a error.Because,we here are replacing the state
+
+Returning a New Array: If you were to return a new empty array with return [];, you are not mutating the existing state but rather providing a new state. In Redux, reducers are supposed to be pure functions, meaning they should return a new state rather than mutate the existing one. However, simply returning a new array does not update the state in place; it replaces the entire state if handled incorrectly.
+
+-The correct alternate way:-
+clearCart=(state,action)=>{
+return {...state,items:[]}; //mutating the state not providing a new state
+}
+
+7)Redux dev tools:-
+
+
+***next task:-Read redux and immerjs docs.
+
+
+
+
+
+
+
