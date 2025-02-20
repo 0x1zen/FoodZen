@@ -2350,7 +2350,7 @@ return {...state,items:[]}; //mutating the state not providing a new state
 7)Redux dev tools:-
 
 
-***next task:-Read redux and immerjs docs.
+***next task:-Read redux , rtk query and immerjs docs.
 
 
 
