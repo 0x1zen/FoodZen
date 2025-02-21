@@ -2350,7 +2350,31 @@ return {...state,items:[]}; //mutating the state not providing a new state
 7)Redux dev tools:-
 
 
-***next task:-Read redux , rtk query and immerjs docs.
+****next task:-Read redux , rtk query and immerjs docs.
+
+Types of testing:-
+1)Unit testing - Means testing our react component in isolation
+eg.Testing my header component
+-Trying to render it and see it rendered properly or not.
+-Testing small unit ofour react application
+
+2)Integration testing- testing the integration of the components
+-eg.when we type something in search bar and hit search button,the restaurant cards changes.So many components are collaborated here.Testing such feature is integration testing.
+-testing the flow of someone typing and searching for a restaurant and the number or restaurant changing according to the search query.
+-Multiple components are involved and talking to each other.
+
+3)End to end testing-Testing the website as soon as the user lands on the website to he leaves the website.
+-Simulating what the user will do throughout the app.
+-End to end testing requires tools like cypress,pupeteer,selenium etc.
+
+
+But,as a dev,we are only concerned about unit and integration testing.
+
+React Testing Library:-
+-it is build on top of DOM testing library.All other testing libraries like angular testing library,vue testing library are built on top of DOM testing library.
+-
+
+
 
 
 
