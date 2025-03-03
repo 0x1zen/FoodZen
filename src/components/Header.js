@@ -38,8 +38,12 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Link to="/cart" className="text-white hover:text-gray-300 flex ">
-              Cart <p className="bg-green-500 rounded-full">{cartItems.length}</p>
+            <Link
+              to="/cart"
+              className="text-white hover:text-gray-300 flex p-1"
+            >
+              Cart{" "}
+              <p className="bg-green-500 rounded-full">{cartItems.length}</p>
             </Link>
           </li>
           <li>

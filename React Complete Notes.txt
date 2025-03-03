@@ -2372,7 +2372,50 @@ But,as a dev,we are only concerned about unit and integration testing.
 
 React Testing Library:-
 -it is build on top of DOM testing library.All other testing libraries like angular testing library,vue testing library are built on top of DOM testing library.
--
+-in create-react-app the react testing library is already integrated inside it.But in our case,we will have to install it via npm.
+-React-testing library uses something known as JEST.
+-It is a delightful javascript testing framework with a focus on simplicity.
+-It works with projects using babel,Typescript,Node,React,Angular,Vue and more!
+
+Commands for installing react-testingl library
+
+npm i -D @testing-library/react
+npm i -D jest
+
+Since,jest requires babel
+
+npm install --save-dev babel-jest @babel/core @babel/preset-env
+
+Setting Up babel.config.js in root directory
+
+module.exports = {
+  presets: [["@babel/preset-env", { targets: { node: "current" } }]],
+};
+
+Since,parcel has its own babel configuration and here for react testing library we are trying to set babel.config.js ,it will override the parcels babel conifg.
+
+***Read this:-
+
+https://parceljs.org/languages/javascript/#babel
+
+While Parcel includes transpilation by default, you may still need to use Babel with other tools such as test runners like Jest, and linters like ESLint. If this is the case, you may not be able to completely remove your Babel config. You can make Parcel ignore your Babel config instead, which will have performance benefits and prevent the other issues described above.
+
+To disable Babel transpilation in Parcel, override the default Parcel config for JavaScript to exclude @parcel/transformer-babel.
+
+By Creating a .parcelrc file and putting below code inside it
+{
+  "extends": "@parcel/config-default",
+  "transformers": {
+    "*.{js,mjs,jsx,cjs,ts,tsx}": [
+      "@parcel/transformer-js",
+      "@parcel/transformer-react-refresh-wrap"
+    ]
+  }
+}
+
+-we are making the babel config file not conflict with parcel babel config.
+
+
 
 
 
