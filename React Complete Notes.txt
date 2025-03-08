@@ -2415,6 +2415,24 @@ By Creating a .parcelrc file and putting below code inside it
 
 -we are making the babel config file not conflict with parcel babel config.
 
+Configuring Jest:-
+
+npx jest --init  will create a new config file for jest.
+
+JSDOM in jest:-
+-JSDOM is a library which parses and interacts with assembled HTML just like a browser.
+-JSDOM creates a environment in which these test cases will run
+
+
+Jest 28
+Jest is a JavaScript testing framework designed for testing React applications, but it also works 
+with other JavaScript frameworks like Node.js, Vue.js, and Angular.
+It is developed by Meta (formerly Facebook) and is widely used for unit and integration testing.
+
+
+***If you're using Jest 28 or later, jest-environment-jsdom package now must be installed separately.
+
+npm install --save-dev jest-environment-jsdom
 
 
 
