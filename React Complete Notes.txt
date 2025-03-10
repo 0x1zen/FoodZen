@@ -2434,6 +2434,98 @@ It is developed by Meta (formerly Facebook) and is widely used for unit and inte
 
 npm install --save-dev jest-environment-jsdom
 
+Where do we write our test cases?
+-Inside components create a folder
+ __tests__
+
+ or 
+
+ create files with naming convention as
+
+ componentName.tests.js
+
+ __ = dunder tests
+
+ Two underscores in the front and two undersscores in the back is called as a dunder.
+
+ How does the sum.test.js file looks like?
+
+ import {sum} from "../sum.js";
+
+ test("Sum function should calculate the sum of two numbers",()=>{
+   const result=sum(3,4);
+ // The below line is the assertion
+   expect(result).toBe(9);
+ })
+
+
+ Time To Test React:-
+
+ import { render } from "@testing-library/react";
+ import Contact from "../Contact.js";
+
+ test("Should load contact component", () => {
+   render(<Contact />);
+   // Rendering to the jsdom environment.
+   const heading = screen.getByRole("heading");
+   expect(heading).toBeInTheDocument();
+ });
+
+-If we run the above test 
+
+npm run test
+
+-It would throw and error
+
+we should install a library
+
+npm -D @babel/preset-react
+
+This helps to convert the jsx code to html which helps jest to read properly.
+
+Also,Change the babel.config.js
+
+module.exports = {
+  presets: [
+    ["@babel/preset-env", { targets: { node: "current" } }],
+    ["@babel/preset-react", { runtime: "automatic" }],
+  ],
+};
+
+Still after running this we get a error.
+
+to fix this we have to install 
+
+toBeInTheDocument()
+
+the above function comes from 
+
+npm -D install @testing-library/jest-dom
+
+
+Below is how the entire code to look like:-
+
+import { render, screen } from "@testing-library/react";
+import Contact from "../Contact.js";
+import "@testing-library/jest-dom";
+
+test("Should load contact component", () => {
+  render(<Contact />);
+  // Rendering to the jsdom environment.
+  const heading = screen.getByRole("heading");
+  expect(heading).toBeInTheDocument();
+});
+
+What is the getByRole function?
+-There are different types of roles,lets say a button,headers,inpur boxes etc.
+
+
+
+
+ 
+
+
+
 
 
 
