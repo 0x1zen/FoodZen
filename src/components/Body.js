@@ -43,7 +43,7 @@ const Body = () => {
     );
   }
 
-  const {setUserName , loggedInUser}=useContext(UserContext);
+  const { setUserName, loggedInUser } = useContext(UserContext);
 
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
@@ -87,7 +87,11 @@ const Body = () => {
         >
           Top Rated Restaurants
         </button>
-        <input className="border p-2" onChange={(e)=>setUserName(e.target.value)} value={loggedInUser}></input>
+        <input
+          className="border p-2"
+          onChange={(e) => setUserName(e.target.value)}
+          value={loggedInUser}
+        ></input>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filteredRestaurant.map((restaurant) => (

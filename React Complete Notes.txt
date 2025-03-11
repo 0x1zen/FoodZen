@@ -2570,7 +2570,77 @@ Global Configurations: The setupTests.js file is also a central place to include
 Isolation and Clean Environment: By setting up a test environment configuration file (setupTests.js), you isolate environment setup from test logic. This leads to cleaner, more maintainable test code and ensures that the environment setup is applied consistently across all tests.
 
 
-How do we write test cases where we do expects props?
+How do we write test cases where we do expect props?
+import mockData from "../mocks/mockData.json"
+test("Should render a card with prop data", () => {
+  render(<Card resData={cardMock} />);
+  const name = screen.getByText("Shriji Namkeen");
+  expect(name).toBeInTheDocument();
+});
+
+-We render the Component with mockData which is similar to the response data from API.
+
+How do we write test cases where Higher Order Components are used:-
+import { withFlatDiscount } from "../Card.js";
+const CardWithFlatDiscount = withFlatDiscount(Card);
+
+test("Should load label on the card", () => {
+  render(<CardWithFlatDiscount resData={cardLabelMock} />);
+  const label = screen.getByText(/₹40/);
+  expect(label).toBeInTheDocument();
+});
+
+-First we import the higher order component,and create a component out of it using the hook.
+
+and provide the props data to it.
+
+More About JSDOM:-
+-test("Should Load Body Component With Search",()=>{
+  render(<Body/>);
+})
+
+-When we run the above test,it will throw an error because the Body Component has a api call(fetch)
+-Now,when we render(<Body/>),this is rendered in the jsdom environment,which is not the actual browser.
+-Also,if we recall from javascript,fetch is not the part of javascript but it is a superpower givern by browsers.
+-JSDOM is a browser-like environment,which does not understand fetch.
+***-So,we have to write a mock fetch function.It should completely mimick the original fetch function.
+
+global.fetch=jest.fn(()=>{
+  return Promise.resolve({ //since fetch returns a promise.
+    json : () =>{ //after resolving the promise the response is converted into json
+      return Promise.resolve(data); //Json function again returns a promise which after resolving gives data.
+    }
+  })
+})
+
+***Automatic Test Running:-
+write a script in package.json
+
+watch-test : "jest --watch"
+
+**How do we handle Components with React Context:-
+
+The error TypeError: Cannot destructure property 'basename' of 'React10.useContext(...)' as it is null typically indicates that there is an issue with the context being used in your React component. The useContext hook is trying to access a property from a context object, but the context value is null or undefined.
+
+test("Should Load Body Component With Search", async () => {
+  await act(async () =>
+    render(
+      <UserContext.Provider value={{ loggedInUser: "0x1zen", setUserName: () =>{"0x1zen"} }}>
+        <BrowserRouter>
+          <Body />
+        </BrowserRouter>
+      </UserContext.Provider>,
+    ),
+  );
+  const searchBtn = screen.getByRole("button",{name:"Search"});
+  expect(searchBtn).toBeInTheDocument();
+});
+
+-Also,the act function above is used to wrap up our render function.
+-This is because the body has api calls,which means the state change happends because of it.
+-So,we have to wrap up the render inside the act function making it async.
+
+
 
 
 
