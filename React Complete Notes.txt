@@ -2519,6 +2519,62 @@ test("Should load contact component", () => {
 What is the getByRole function?
 -There are different types of roles,lets say a button,headers,inpur boxes etc.
 
+For React Redux and Router we have to wrap the render component inside the tags:-
+
+import { render, screen } from "@testing-library/react";
+import Header from "../Header.js";
+import { BrowserRouter } from "react-router";
+import { Provider } from "react-redux";
+import appStore from "../../utils/appStore.js";
+import "@testing-library/jest-dom";
+
+import { TextEncoder, TextDecoder } from "util";
+Object.assign(global, { TextDecoder, TextEncoder });
+
+test("Should load Header Component With A Login Button", () => {
+  render(
+    <BrowserRouter>
+      <Provider store={appStore}>
+        <Header />
+      </Provider>
+    </BrowserRouter>,
+  );
+  const loginButton = screen.getByRole("button");
+  expect(loginButton).toBeInTheDocument();
+});
+
+*** VVVVVIMP:-Now the Above code Will throw Text Encoder Error
+
+To fix this,create a setupTests.js file in root directory.
+
+import "@testing-library/jest-dom";
+import { TextEncoder, TextDecoder } from "util";
+
+global.TextEncoder = TextEncoder;
+global.TextDecoder = TextDecoder;
+
+-Write the above code in that file.
+-Also install npm -D install util
+
+-Also,
+Add the below line in jest.config.js
+
+setupFilesAfterEnv: ["<rootDir>/setupTests.js"],
+
+The reason you needed to create a setupTests.js file and configure it in your Jest setup is to ensure that certain configurations and polyfills are in place before your tests run. Here's why this is important:
+
+Polyfills: In your case, the TextEncoder and TextDecoder classes are not natively available in the Node.js environment where Jest runs its tests. These classes are typically available in web browsers. By importing and assigning them to the global object in the setupTests.js file, you ensure that any code relying on these classes will work as expected during testing.
+
+Global Configurations: The setupTests.js file is also a central place to include global configurations or extensions that enhance Jest's functionality, such as extending expect assertions with @testing-library/jest-dom. This helps in writing more expressive and cleaner tests.
+
+Isolation and Clean Environment: By setting up a test environment configuration file (setupTests.js), you isolate environment setup from test logic. This leads to cleaner, more maintainable test code and ensures that the environment setup is applied consistently across all tests.
+
+
+How do we write test cases where we do expects props?
+
+
+
+
 
 
 
