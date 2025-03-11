@@ -25,15 +25,15 @@ const Card = (props) => {
 export const withFlatDiscount = (Card) => {
   return (props) => {
     const { resData } = props;
+    const labelData =
+      resData?.info?.aggregatedDiscountInfoV3?.header +
+      " " +
+      resData?.info?.aggregatedDiscountInfoV3?.subHeader;
     return (
       <div className="relative">
         {resData?.info?.aggregatedDiscountInfoV3 ? (
           <div className="absolute bottom-90 left-2 z-10 bg-opacity-50 bg-black text-white px-2 py-1 max-w-37 rounded-md overflow-hidden whitespace-nowrap truncate">
-            <label className="">
-              {resData?.info?.aggregatedDiscountInfoV3?.header +
-                " " +
-                resData?.info?.aggregatedDiscountInfoV3?.subHeader}
-            </label>
+            <label className="label-data">{labelData}</label>
           </div>
         ) : (
           <label className="hidden"></label>

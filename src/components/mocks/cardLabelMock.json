@@ -1,0 +1,72 @@
+{
+    "info": {
+        "aggregatedDiscountInfoV3": {
+            "header": "₹40 OFF",
+            "subHeader": "ABOVE ₹399",
+            "discountTag": "FLAT DEAL"
+        },
+        "name": "Shree Naivedyam",
+        "cuisines": [
+            "North Indian",
+            "Chinese",
+            "South Indian",
+            "Pizzas",
+            "Beverages"
+        ],
+        "avgRating": 4.3,
+        "sla": {
+            "deliveryTime": 45,
+            "lastMileTravel": 11.7,
+            "serviceability": "SERVICEABLE",
+            "slaString": "40-45 mins",
+            "lastMileTravelString": "11.7 km",
+            "iconType": "ICON_TYPE_EMPTY"
+        }
+    },
+    "id": "774546",
+    "cloudinaryImageId": "2274f59cb8efcfab1f446b195bcbda3b",
+    "locality": "Khajri Road",
+    "areaName": "Chhindwara City",
+    "costForTwo": "₹300 for two",
+    "veg": true,
+    "parentId": "428968",
+    "avgRatingString": "4.3",
+    "totalRatingsString": "108",
+    "availability": {
+        "nextCloseTime": "2025-03-11 23:00:00",
+        "opened": true
+    },
+    "badges": {},
+    "isOpen": true,
+    "type": "F",
+    "badgesV2": {
+        "entityBadges": {
+            "imageBased": {},
+            "textBased": {},
+            "textExtendedBadges": {}
+        }
+    },
+    "orderabilityCommunication": {
+        "title": {},
+        "subTitle": {},
+        "message": {},
+        "customIcon": {}
+    },
+    "differentiatedUi": {
+        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        "differentiatedUiMediaDetails": {
+            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+            "lottie": {},
+            "video": {}
+        }
+    },
+    "reviewsSummary": {},
+    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+    "restaurantOfferPresentationInfo": {},
+    "externalRatings": {
+        "aggregatedRating": {
+            "rating": "--"
+        }
+    },
+    "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+}
