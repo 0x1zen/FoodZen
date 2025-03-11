@@ -2640,7 +2640,27 @@ test("Should Load Body Component With Search", async () => {
 -This is because the body has api calls,which means the state change happends because of it.
 -So,we have to wrap up the render inside the act function making it async.
 
+Integration Testing:-
 
+-Checking if the input box searches:-
+
+-The e from the e.target.value is given to us by browser.
+-To actually simulate user behaviour,we use fireEvent.change(input-box , {target : {value : "Your-Text"}})
+
+How do we get Text Inside of a element?
+
+fireEvent.click(topRatedRestaurants);
+const topRatedCards = screen.getAllByTestId("resCard");
+const filteredCards = topRatedCards.filter((card) => {
+  const ratingElement = card.querySelector('[data-testid="test-rating"]');
+  if(ratingElement){
+    const text=ratingElement.textContent.split("");
+    // output = [ '4', '.', '4', ' ', '⭐' ]
+    const rating=text[0] + text[1] + text[2];
+    return rating >= 4.3;
+  }
+});
+expect(filteredCards.length).toBeGreaterThan(2);
 
 
 
