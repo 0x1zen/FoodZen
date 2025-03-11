@@ -4,6 +4,7 @@ import restaurantListResponse from "../mocks/restaurantListResponse.json";
 import { act } from "react";
 import UserContext from "../../utils/UserContext.js";
 import { BrowserRouter } from "react-router";
+
 global.fetch = jest.fn(() => {
   return Promise.resolve({
     json: () => {
@@ -25,8 +26,8 @@ test("Should Search Restaurant List For Pizza Input", async () => {
         <BrowserRouter>
           <Body />
         </BrowserRouter>
-      </UserContext.Provider>,
-    ),
+      </UserContext.Provider>
+    )
   );
   const cardsBeforeSearch = screen.getAllByTestId("resCard");
   expect(cardsBeforeSearch.length).toBe(8);
@@ -52,7 +53,7 @@ test("Should Return Cards Having Rating Greater Than 4.3 ", async () => {
         <BrowserRouter>
           <Body />
         </BrowserRouter>
-      </UserContext.Provider>,
+      </UserContext.Provider>
     );
   });
 
@@ -64,10 +65,10 @@ test("Should Return Cards Having Rating Greater Than 4.3 ", async () => {
   const topRatedCards = screen.getAllByTestId("resCard");
   const filteredCards = topRatedCards.filter((card) => {
     const ratingElement = card.querySelector('[data-testid="test-rating"]');
-    if(ratingElement){
-      const text=ratingElement.textContent.split("");
+    if (ratingElement) {
+      const text = ratingElement.textContent.split("");
       // output = [ '4', '.', '4', ' ', '⭐' ]
-      const rating=text[0] + text[1] + text[2];
+      const rating = text[0] + text[1] + text[2];
       return rating >= 4.3;
     }
   });

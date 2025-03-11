@@ -2648,6 +2648,8 @@ Integration Testing:-
 -To actually simulate user behaviour,we use fireEvent.change(input-box , {target : {value : "Your-Text"}})
 
 How do we get Text Inside of a element?
+-by giving the data-testid attribute to element and getting it by querySelector.
+-And then using .textContent function on it.
 
 fireEvent.click(topRatedRestaurants);
 const topRatedCards = screen.getAllByTestId("resCard");
@@ -2661,6 +2663,27 @@ const filteredCards = topRatedCards.filter((card) => {
   }
 });
 expect(filteredCards.length).toBeGreaterThan(2);
+
+
+The beforeAll function:-
+-Runs before any test case execution starts.
+-Similarly beforeEach function.
+
+
+  beforeAll(()=>{
+    console.log("Before All");
+  })
+  beforeEach(()=>{
+    console.log("Before Each");
+  })
+
+-Similarly there is afterEach(()=>)
+
+
+afterEach(()=>{
+  console.log("after each);
+})
+
 
 
 

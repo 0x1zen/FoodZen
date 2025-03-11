@@ -12,6 +12,7 @@ const RestaurantMenu = () => {
   if (resInfo === null) {
     return <Shimmer />;
   }
+  console.log(resInfo);
 
   const { name, costForTwoMessage, cuisines, avgRating, sla, areaName } =
     resInfo?.info;
