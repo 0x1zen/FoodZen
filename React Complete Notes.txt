@@ -2685,6 +2685,41 @@ afterEach(()=>{
 })
 
 
+Why do we write async twice inside the act?
+
+it("Should Load Restaurant Menu Component", async () => {
+    await act(async () => render(<RestaurantMenu />));
+});
+
+In the provided code snippet, the async keyword is used twice within the context of testing a React component using asynchronous operations. Here's an explanation of each usage and how it works:
+
+Outer async: This async is used in the function definition of the test case itself. It tells JavaScript that the function is asynchronous and may involve asynchronous operations, which means it can use await within its body. This is crucial for handling promises and ensuring that the test waits for all asynchronous operations to complete before finishing.
+
+Inner async: This async is used inside the act() function call. The act() function is provided by React's testing utilities to handle components that have side effects, and it ensures that all updates related to these side effects are applied before moving on. When you pass an asynchronous function to act(), it means that the operations inside might involve state updates or other effects that are not synchronous. By marking this function as async, you're indicating that act() should wait for these operations to complete. This is particularly important when rendering components that might have effects, state updates, or depend on asynchronous data.
+
+Here's a breakdown of how it works:
+
+Execution of act(): When act() is called with an asynchronous function, it returns a promise. This promise resolves when all the effects triggered by the React component (and other operations inside act()) are flushed and completed.
+
+Using await with act(): By using await before act(), you ensure that your test waits for the promise returned by act() to resolve, meaning all component-related operations are complete. This is critical in tests to make sure the component state is stable and all updates have been processed before assertions are made.
+
+Ensuring Test Integrity: Without the proper use of async and await, tests might finish prematurely before all component updates and effects are processed, leading to flaky and unreliable test outcomes.
+
+
+Creating a mock function:-
+
+global.fetch = jest.fn(() => { //jest.fn gives you a mock function
+    return Promise.resolve({
+        json: () => {
+            return Promise.resolve(restaurantMenuMock);
+        },
+    });
+});
+
+***VVIMP Things to remember:-
+-Do not return two different things from a single hook
+
+
 
 
 

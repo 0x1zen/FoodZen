@@ -1,16 +1,25 @@
-import {render,screen} from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import RestaurantMenu from "../RestaurantMenu.js";
+import restaurantInfoMock from "../mocks/restaurantInfoMock.json";
 import restaurantMenuMock from "../mocks/restaurantMenuMock.json";
+import { act } from "react";
 
-global.fetch = jest.fn(()=>{
+global.fetch = jest.fn(() => {
     return Promise.resolve({
-        json : ()=> {return  Promise.resolve(restaurantMenuMock);}
+        json: () => {
+            return Promise.resolve(restaurantInfoMock);
+        },
     });
-})
+});
+global.fetch = jest.fn(() => {
+    return Promise.resolve({
+        json: () => {
+            return Promise.resolve(restaurantMenuMock);
+        },
+    });
+});
 
-describe("Add To Cart Test",()=>{
-    it("Should Load Restaurant Menu Component",()=>{
-        render(<RestaurantMenu/>)
-    })
-})
+it("Should Load Restaurant Menu Component", async () => {
+    await act(async () => render(<RestaurantMenu />));
+});

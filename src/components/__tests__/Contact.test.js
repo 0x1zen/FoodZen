@@ -3,15 +3,6 @@ import Contact from "../Contact.js";
 import "@testing-library/jest-dom";
 
 describe("Contact Component Test Cases", () => {
-  beforeAll(() => {
-    console.log("Before All");
-  });
-  beforeEach(() => {
-    console.log("Before Each");
-  });
-  afterEach(() => {
-    console.log("after each");
-  });
   test("Should load contact component", () => {
     render(<Contact />);
     // Rendering to the jsdom environment.

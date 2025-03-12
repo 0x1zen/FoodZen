@@ -1,176 +1,1595 @@
-{
-    "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
-    "info": {
-      "id": "234875",
-      "name": "Adil Hotel",
-      "city": "Chhindwara",
-      "slugs": {
-        "restaurant": "adil-hotel-chhindwara-city-chhindwara-city",
-        "city": "chhindwara"
-      },
-      "uniqueId": "e51e6528-4859-48c8-8fed-e84c17dc2d76",
-      "cloudinaryImageId": "gp1ityra6utvzqn6ghnv",
-      "locality": "Rautha Wada",
-      "areaName": "Chhindwara Locality",
-      "costForTwo": "15000",
-      "costForTwoMessage": "₹150 for two",
-      "cuisines": [
-        "North Indian",
-        "Biryani"
-      ],
-      "avgRating": 4.3,
-      "feeDetails": {
-        "restaurantId": "234875",
-        "fees": [
-          {}
-        ]
-      },
-      "parentId": "27123",
-      "avgRatingString": "4.3",
-      "totalRatingsString": "1.2K+ ratings",
-      "sla": {
-        "restaurantId": "234875",
-        "deliveryTime": 33,
-        "minDeliveryTime": 30,
-        "maxDeliveryTime": 35,
-        "lastMileTravel": 10.7,
-        "serviceability": "SERVICEABLE",
-        "stressFactor": 1,
-        "rainMode": "RAIN_MODE_NONE",
-        "longDistance": "LONG_DISTANCE_IT_IS_LONG_DISTANCE",
-        "zoneId": 2218,
-        "slaString": "30-35 MINS",
-        "lastMileTravelString": "10.7 km",
-        "iconType": "ICON_TYPE_EMPTY"
-      },
-      "availability": {
-        "nextCloseTime": "2025-03-11 23:00:00",
-        "visibility": true,
-        "opened": true,
-        "restaurantClosedMeta": {}
-      },
-      "aggregatedDiscountInfo": {
-        "header": "Get every item @ 129",
-        "shortDescriptionList": [
-          {
-            "meta": "Get every item @ 129",
-            "discountType": "FinalPrice",
-            "operationType": "RESTAURANT"
-          },
-          {
-            "meta": "Flat ₹125 off on orders above ₹249",
-            "discountType": "Flat",
-            "operationType": "RESTAURANT"
-          }
-        ],
-        "descriptionList": [
-          {
-            "meta": "Get every item @ 129",
-            "discountType": "FinalPrice",
-            "operationType": "RESTAURANT"
-          },
-          {
-            "meta": "Flat ₹125 off on orders above ₹249 | Use code SUPERSAVER",
-            "discountType": "Flat",
-            "operationType": "RESTAURANT"
-          }
-        ],
-        "visible": true
-      },
-      "badges": {},
-      "slugString": "adil-hotel-chhindwara-city-chhindwara-city",
-      "isOpen": true,
-      "labels": [
-        {
-          "title": "Timings",
-          "message": "null"
-        },
-        {
-          "title": "Address",
-          "message": "Purana Bail Bazar, Karbala Chowak , Chhindwara 480001"
-        },
-        {
-          "title": "Cuisines",
-          "message": "North Indian,Biryani"
+[
+    {
+        "card": {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory",
+                "title": "Recommended",
+                "itemCards": [
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908336",
+                                "name": "Plain maggi",
+                                "category": "Maggi",
+                                "imageId": "FOOD_CATALOG/IMAGES/CMS/2024/5/29/a1eeac74-144e-4012-9b86-90fa4fa188a0_2c42cf99-6dae-450e-afde-fded90c0ffda.jpg",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 9000,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "showImage": true,
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908338",
+                                "name": "Cheese maggi",
+                                "category": "Maggi",
+                                "imageId": "FOOD_CATALOG/IMAGES/CMS/2024/8/24/af0ae0b6-97fc-4101-8e50-c01fc2fa6875_1ffe2165-2e4e-4059-8d8d-89f8b8cc9224.jpg",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 12000,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "showImage": true,
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    }
+                ],
+                "type": "CATEGORY_TYPE_RECOMMENDED",
+                "subtitleSuffix": {},
+                "categoryId": "-1"
+            }
         }
-      ],
-      "totalRatings": 1200,
-      "aggregatedDiscountInfoV2": {
-        "header": "Get every item @ 129",
-        "shortDescriptionList": [
-          {
-            "meta": "Get every item @ 129",
-            "discountType": "FinalPrice",
-            "operationType": "RESTAURANT"
-          },
-          {
-            "meta": "Flat ₹125 off on orders above ₹249",
-            "discountType": "Flat",
-            "operationType": "RESTAURANT"
-          }
-        ],
-        "descriptionList": [
-          {
-            "meta": "Get every item @ 129",
-            "discountType": "FinalPrice",
-            "operationType": "RESTAURANT"
-          },
-          {
-            "meta": "Flat ₹125 off on orders above ₹249 | Use code SUPERSAVER",
-            "discountType": "Flat",
-            "operationType": "RESTAURANT"
-          }
-        ],
-        "couponDetailsCta": "View coupon details"
-      },
-      "type": "F",
-      "nudgeBanners": [
-        {
-          "priority": 1,
-          "discountInfo": {
-            "discountType": "FinalPrice",
-            "value": 129
-          },
-          "unlockedMessage": "Deal of the Day unlocked!",
-          "minItemCount": 1,
-          "maxItemCount": 1,
-          "type": "SILD",
-          "nudgeTagInfo": {
-            "title": "Deal of the Day",
-            "fontName": "FONT_NAME_CONDENSED_BOLD"
-          },
-          "logoCtx": {}
-        }
-      ],
-      "headerBanner": {
-        "url": "swiggy://webview?is_external=false&webview_url=https://www.swiggy.com/restaurant-info/234875"
-      },
-      "generalPurposeInfoListV2": [
-        {
-          "cta": {
-            "info": {
-              "recordings": {}
-            },
-            "linkCta": {}
-          }
-        }
-      ],
-      "ratingSlab": "RATING_SLAB_5",
-      "orderabilityCommunication": {
-        "title": {},
-        "subTitle": {},
-        "message": {},
-        "customIcon": {},
-        "commsStyling": {}
-      },
-      "hasBestsellerItems": true,
-      "cartOrderabilityNudgeBanner": {
-        "parameters": {},
-        "presentation": {}
-      },
-      "latLong": "22.0594492,78.9423598",
-      "backgroundImageOverlayInfo": {},
-      "featuredSectionInfo": {}
     },
-    "analytics": {}
-  }
+    {
+        "card": {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory",
+                "title": "Snacks",
+                "itemCards": [
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908332",
+                                "name": "Peri peri french fries",
+                                "category": "Snacks",
+                                "imageId": "FOOD_CATALOG/IMAGES/CMS/2024/10/9/44b42887-eacd-4833-8c24-3a5e23cb6cb2_608f54b1-fabd-42cb-83e6-ae44d9700b6a.JPG",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 13000,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {
+                                    "text": "Bestseller",
+                                    "textColor": "#ffffff",
+                                    "topBackgroundColor": "#d53d4c",
+                                    "bottomBackgroundColor": "#b02331"
+                                },
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "isBestseller": true,
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908333",
+                                "name": "French Fries",
+                                "category": "Snacks",
+                                "imageId": "FOOD_CATALOG/IMAGES/CMS/2024/10/9/a79eeb55-e9d3-4556-b30a-299117d4d189_ad5376f2-1cb6-4abf-985f-fe0304d8a6b3.JPG",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 12000,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {
+                                    "text": "Bestseller",
+                                    "textColor": "#ffffff",
+                                    "topBackgroundColor": "#d53d4c",
+                                    "bottomBackgroundColor": "#b02331"
+                                },
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "isBestseller": true,
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908334",
+                                "name": "Cheese french fries",
+                                "category": "Snacks",
+                                "imageId": "FOOD_CATALOG/IMAGES/CMS/2025/2/10/1a3664bc-fd45-475e-83a1-c73e54939bd5_b1fea8f3-6e87-4468-b23b-2e0def0e8c94.JPG",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 13900,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908335",
+                                "name": "Peri Peri Cheese French Fries",
+                                "category": "Snacks",
+                                "imageId": "FOOD_CATALOG/IMAGES/CMS/2025/1/24/61852bed-a264-4769-b558-bdbd3f821f44_ea9f8a82-60f3-410c-bc39-d89cd9dcd93c.jpg",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 14800,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    }
+                ],
+                "subtitleSuffix": {},
+                "image": "FOOD_CATALOG/IMAGES/CMS/2024/10/9/44b42887-eacd-4833-8c24-3a5e23cb6cb2_608f54b1-fabd-42cb-83e6-ae44d9700b6a.JPG",
+                "categoryId": "49779272"
+            }
+        }
+    },
+    {
+        "card": {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory",
+                "title": "Beverages",
+                "itemCards": [
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908347",
+                                "name": "Mocha cold coffee",
+                                "category": "Beverages",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 13900,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908343",
+                                "name": "Cold coffee",
+                                "category": "Beverages",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 9900,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908344",
+                                "name": "Espresso cold coffee",
+                                "category": "Beverages",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 11900,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908345",
+                                "name": "Irish cold coffee",
+                                "category": "Beverages",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 12900,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908346",
+                                "name": "Nutella cold coffee",
+                                "category": "Beverages",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 14800,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908348",
+                                "name": "Chocolate thick milkshake",
+                                "category": "Beverages",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 14000,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908349",
+                                "name": "Vanila shake",
+                                "category": "Beverages",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 12000,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    }
+                ],
+                "subtitleSuffix": {},
+                "categoryId": "49779275"
+            }
+        }
+    },
+    {
+        "card": {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory",
+                "title": "Pasta",
+                "itemCards": [
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908353",
+                                "name": "White sauce pasta",
+                                "category": "Pasta",
+                                "imageId": "FOOD_CATALOG/IMAGES/CMS/2024/10/9/fa941576-1d03-401d-9562-5de009d66dd3_56b23240-95e3-4dd5-b724-43c2a42de23d.JPG",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 22000,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908354",
+                                "name": "Red sauce pasta",
+                                "category": "Pasta",
+                                "imageId": "FOOD_CATALOG/IMAGES/CMS/2024/10/9/0333232b-54f3-40fd-8eb1-f4691a139354_83741640-a5a4-49cf-8c41-93dbb0ccbe46.JPG",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 21000,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {
+                                    "text": "Bestseller",
+                                    "textColor": "#ffffff",
+                                    "topBackgroundColor": "#d53d4c",
+                                    "bottomBackgroundColor": "#b02331"
+                                },
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "isBestseller": true,
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    }
+                ],
+                "subtitleSuffix": {},
+                "image": "FOOD_CATALOG/IMAGES/CMS/2024/10/9/fa941576-1d03-401d-9562-5de009d66dd3_56b23240-95e3-4dd5-b724-43c2a42de23d.JPG",
+                "categoryId": "49779277"
+            }
+        }
+    },
+    {
+        "card": {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory",
+                "title": "Maggi",
+                "itemCards": [
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908336",
+                                "name": "Plain maggi",
+                                "category": "Maggi",
+                                "imageId": "FOOD_CATALOG/IMAGES/CMS/2024/5/29/a1eeac74-144e-4012-9b86-90fa4fa188a0_2c42cf99-6dae-450e-afde-fded90c0ffda.jpg",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 9000,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908337",
+                                "name": "Double masala maggi",
+                                "category": "Maggi",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 10000,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {
+                                    "text": "Bestseller",
+                                    "textColor": "#ffffff",
+                                    "topBackgroundColor": "#d53d4c",
+                                    "bottomBackgroundColor": "#b02331"
+                                },
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "isBestseller": true,
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908338",
+                                "name": "Cheese maggi",
+                                "category": "Maggi",
+                                "imageId": "FOOD_CATALOG/IMAGES/CMS/2024/8/24/af0ae0b6-97fc-4101-8e50-c01fc2fa6875_1ffe2165-2e4e-4059-8d8d-89f8b8cc9224.jpg",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 12000,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908339",
+                                "name": "Cheese corn maggi",
+                                "category": "Maggi",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 13000,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908340",
+                                "name": "Urban special maggi",
+                                "category": "Maggi",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 14800,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    }
+                ],
+                "subtitleSuffix": {},
+                "image": "FOOD_CATALOG/IMAGES/CMS/2024/5/29/a1eeac74-144e-4012-9b86-90fa4fa188a0_2c42cf99-6dae-450e-afde-fded90c0ffda.jpg",
+                "categoryId": "49779273"
+            }
+        }
+    },
+    {
+        "card": {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory",
+                "title": "Platters",
+                "itemCards": [
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908356",
+                                "name": "Veg Cheese Pizza [7 Inches] With Fries Cold Coffee",
+                                "category": "Platters",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 39900,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908358",
+                                "name": "Veg cheese sandwich with fries and cold coffee",
+                                "category": "Platters",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 33900,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908357",
+                                "name": "Veg Cheese Burger With Fries And cold coffee",
+                                "category": "Platters",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 33900,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    }
+                ],
+                "subtitleSuffix": {},
+                "categoryId": "49779279"
+            }
+        }
+    },
+    {
+        "card": {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory",
+                "title": "Sandwiches Jumbo",
+                "itemCards": [
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908321",
+                                "name": "Veg sandwich",
+                                "category": "Sandwiches Jumbo",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 11900,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908325",
+                                "name": "Cheese corn sandwich",
+                                "category": "Sandwiches Jumbo",
+                                "imageId": "FOOD_CATALOG/IMAGES/CMS/2024/12/5/a2f036f0-40e0-41e8-a83a-260ed2622b33_5ab4ece5-fe43-40fd-bc0b-4144fee670bd.jpg",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 12000,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {
+                                    "text": "Bestseller",
+                                    "textColor": "#ffffff",
+                                    "topBackgroundColor": "#d53d4c",
+                                    "bottomBackgroundColor": "#b02331"
+                                },
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "isBestseller": true,
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908322",
+                                "name": "Veg cheese sandwich",
+                                "category": "Sandwiches Jumbo",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 12900,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908323",
+                                "name": "Paneer tikka sandwich",
+                                "category": "Sandwiches Jumbo",
+                                "imageId": "FOOD_CATALOG/IMAGES/CMS/2024/10/9/a97c68ac-796c-4f6b-aedd-2d068ae2f79d_d0990c03-5a6b-4da0-932d-dffa4e42c46a.JPG",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 12900,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908324",
+                                "name": "Urban special sandwich",
+                                "category": "Sandwiches Jumbo",
+                                "imageId": "FOOD_CATALOG/IMAGES/CMS/2025/1/13/dde284de-fafb-46e4-bb4c-b00f703553fd_dfe5d7fb-8db8-47ac-a12e-e9d741d70066.JPG",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 14800,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908326",
+                                "name": "Cheese sandwich",
+                                "category": "Sandwiches Jumbo",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 9900,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908327",
+                                "name": "Veg corn paneer sandwich",
+                                "category": "Sandwiches Jumbo",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 12000,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    }
+                ],
+                "subtitleSuffix": {},
+                "image": "FOOD_CATALOG/IMAGES/CMS/2024/12/5/a2f036f0-40e0-41e8-a83a-260ed2622b33_5ab4ece5-fe43-40fd-bc0b-4144fee670bd.jpg",
+                "categoryId": "49779270"
+            }
+        }
+    },
+    {
+        "card": {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory",
+                "title": "Dessert",
+                "itemCards": [
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908341",
+                                "name": "Sizzling brownie with vanilla ice",
+                                "category": "Dessert",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 14000,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {
+                                    "text": "Bestseller",
+                                    "textColor": "#ffffff",
+                                    "topBackgroundColor": "#d53d4c",
+                                    "bottomBackgroundColor": "#b02331"
+                                },
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "isBestseller": true,
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908342",
+                                "name": "Walnut brownie",
+                                "category": "Dessert",
+                                "imageId": "FOOD_CATALOG/IMAGES/CMS/2025/2/10/8d96d5a5-9c2a-4039-af19-44e33714303d_8d063048-3ae6-4011-be5e-23e937c7c812.JPG",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 9900,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    }
+                ],
+                "subtitleSuffix": {},
+                "image": "FOOD_CATALOG/IMAGES/CMS/2025/2/10/8d96d5a5-9c2a-4039-af19-44e33714303d_8d063048-3ae6-4011-be5e-23e937c7c812.JPG",
+                "categoryId": "49779274"
+            }
+        }
+    },
+    {
+        "card": {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory",
+                "title": "Burgers",
+                "itemCards": [
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908328",
+                                "name": "Aloo tikki burger",
+                                "category": "Burgers",
+                                "imageId": "FOOD_CATALOG/IMAGES/CMS/2024/10/9/3d7c69fd-856d-4f21-a9c4-da0fd3df9b76_07503ff6-b3b0-41e3-b18a-42b5da315ede.JPG",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 9900,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {
+                                    "text": "Bestseller",
+                                    "textColor": "#ffffff",
+                                    "topBackgroundColor": "#d53d4c",
+                                    "bottomBackgroundColor": "#b02331"
+                                },
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "isBestseller": true,
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908329",
+                                "name": "Veggie burger",
+                                "category": "Burgers",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 12000,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908330",
+                                "name": "Veg cheese burger",
+                                "category": "Burgers",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 11000,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908331",
+                                "name": "Maharaja burger",
+                                "category": "Burgers",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 14800,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    }
+                ],
+                "subtitleSuffix": {},
+                "image": "FOOD_CATALOG/IMAGES/CMS/2024/10/9/3d7c69fd-856d-4f21-a9c4-da0fd3df9b76_07503ff6-b3b0-41e3-b18a-42b5da315ede.JPG",
+                "categoryId": "49779271"
+            }
+        }
+    },
+    {
+        "card": {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory",
+                "title": "Garlic Breads",
+                "itemCards": [
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908350",
+                                "name": "Plain garlic bread",
+                                "category": "Garlic Breads",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 9000,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908351",
+                                "name": "Cheese garlic bread",
+                                "category": "Garlic Breads",
+                                "imageId": "FOOD_CATALOG/IMAGES/CMS/2025/1/18/9d0591b3-95e0-4f01-a73b-add6b5cfae66_3e849ee0-4c8d-4445-baa5-668b265e9ee5.jpg",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 14000,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908352",
+                                "name": "Cheese chilli toast",
+                                "category": "Garlic Breads",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 14000,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    }
+                ],
+                "subtitleSuffix": {},
+                "image": "FOOD_CATALOG/IMAGES/CMS/2025/1/18/9d0591b3-95e0-4f01-a73b-add6b5cfae66_3e849ee0-4c8d-4445-baa5-668b265e9ee5.jpg",
+                "categoryId": "49779276"
+            }
+        }
+    },
+    {
+        "card": {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory",
+                "title": "Chinese Combos",
+                "itemCards": [
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908355",
+                                "name": "Noodles with manchurian",
+                                "category": "Chinese Combos",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 14800,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {
+                                    "text": "Bestseller",
+                                    "textColor": "#ffffff",
+                                    "topBackgroundColor": "#d53d4c",
+                                    "bottomBackgroundColor": "#b02331"
+                                },
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "isBestseller": true,
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    }
+                ],
+                "subtitleSuffix": {},
+                "categoryId": "49779278"
+            }
+        }
+    },
+    {
+        "card": {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory",
+                "title": "Pizza",
+                "itemCards": [
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908318",
+                                "name": "Cheese Onion Pizza [7 Inches]",
+                                "category": "Pizza",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 16900,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908305",
+                                "name": "Corn Cheese Pizza [7 Inches]",
+                                "category": "Pizza",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 22900,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908306",
+                                "name": "Veg Cheese Pizza [7 Inches]",
+                                "category": "Pizza",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 21900,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908307",
+                                "name": "Paneer Tikka Pizza [7 Inches]",
+                                "category": "Pizza",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 24900,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {
+                                    "text": "Bestseller",
+                                    "textColor": "#ffffff",
+                                    "topBackgroundColor": "#d53d4c",
+                                    "bottomBackgroundColor": "#b02331"
+                                },
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "isBestseller": true,
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908308",
+                                "name": "Margherita Pizza [7 Inches]",
+                                "category": "Pizza",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 16900,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {
+                                    "text": "Bestseller",
+                                    "textColor": "#ffffff",
+                                    "topBackgroundColor": "#d53d4c",
+                                    "bottomBackgroundColor": "#b02331"
+                                },
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "isBestseller": true,
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908309",
+                                "name": "Urban Cafe Special Pizza [7 Inches]",
+                                "category": "Pizza",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 27900,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908311",
+                                "name": "Double Cheese Pizza [7 Inches]",
+                                "category": "Pizza",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 23900,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908312",
+                                "name": "Cheese Pizza [7 Inches]",
+                                "category": "Pizza",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 14800,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    }
+                ],
+                "subtitleSuffix": {},
+                "categoryId": "49779269"
+            }
+        }
+    },
+    {
+        "card": {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory",
+                "title": "Noodles",
+                "itemCards": [
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908304",
+                                "name": "Schezwan noodles",
+                                "category": "Noodles",
+                                "imageId": "FOOD_CATALOG/IMAGES/CMS/2024/10/9/f677353d-e59e-4f64-a6d4-88614abd1027_2ff52fb2-7020-4d5b-a0c3-e1c3775d10e4.JPG",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 14000,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    },
+                    {
+                        "card": {
+                            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                            "info": {
+                                "id": "143908303",
+                                "name": "Noodles",
+                                "category": "Noodles",
+                                "imageId": "FOOD_CATALOG/IMAGES/CMS/2025/1/13/30e7e25f-03ec-4b40-8f1f-3fe557a5af5d_82fb8a29-0866-4bc5-b55a-8001da1405d1.JPG",
+                                "inStock": 1,
+                                "isVeg": 1,
+                                "price": 13000,
+                                "variants": {},
+                                "variantsV2": {},
+                                "itemAttribute": {
+                                    "vegClassifier": "VEG"
+                                },
+                                "ribbon": {},
+                                "type": "ITEM",
+                                "itemBadge": {},
+                                "badgesV2": {},
+                                "ratings": {
+                                    "aggregatedRating": {}
+                                }
+                            },
+                            "analytics": {},
+                            "hideRestaurantDetails": true
+                        }
+                    }
+                ],
+                "subtitleSuffix": {},
+                "image": "FOOD_CATALOG/IMAGES/CMS/2024/10/9/f677353d-e59e-4f64-a6d4-88614abd1027_2ff52fb2-7020-4d5b-a0c3-e1c3775d10e4.JPG",
+                "categoryId": "49779268"
+            }
+        }
+    }
+]
