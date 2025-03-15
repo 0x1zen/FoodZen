@@ -2719,6 +2719,27 @@ global.fetch = jest.fn(() => { //jest.fn gives you a mock function
 ***VVIMP Things to remember:-
 -Do not return two different things from a single hook
 
+-Do not return two different things from a single custom hook
+ 
+ The Test For Add To Cart Functionality:-
+ 
+ it("Should Load Restaurant Menu Component", async () => {
+   await act(async () =>
+     render(
+         <BrowserRouter>
+         <Provider store={appStore}>
+           <Header />
+           <RestaurantMenu/>
+         </Provider>
+       </BrowserRouter>
+     )
+   );
+ });
+ 
+ 
+ -We can render multiple components inside a single test case.
+ -So if we click on the add to cart button which is in the RestaurantMenu component,the header having the cart Items count should display 1 items inside it.
+ -Also ,The cart page should display a item.We can render that component too.
 
 
 
